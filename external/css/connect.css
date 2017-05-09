@@ -19,15 +19,7 @@
     z-index: 10000;
     border: black 3px solid;
 }
-.background_perfil {
-    background-color: #fff;
-    opacity: 0.7;
-    width: 97.1%;
-    height: 13%;
-    position: absolute;
-    top: 87%;
-    z-index: 1000;
-}
+
 .info_icon {
     font-size: 17px;
     color: #55B3E5;
@@ -36,7 +28,7 @@
     position: absolute;
 }
 .padres {
-    height: 90px;
+    height: 60px;
     text-align: center;
 }
 .hijo {
@@ -87,18 +79,7 @@
 .alejar {
     margin-left: 2.7%;
 }
-@media screen and (max-width: 1024px) {
-.floating-box3 {
-    float: left;
-    width: 50%;
-    display: inline-block;
-}
-.floating-box4 {
-    float: left;
-    width: 50%;
-    display: inline-block;
-}
-}
+
 .texto {
     overflow: auto;
     height: 150px;
@@ -116,7 +97,16 @@
     width: 8px;
     background-color: #F5F5F5;
 }
-
+.icono1 {
+    right: 3%;
+    position: absolute;
+    color: #55B3E5;
+}
+.icono2 {
+    left: 5%;
+    position: absolute;
+    color: #55B3E5;
+}
 .texto::-webkit-scrollbar-thumb
 {
     border-radius: 10px;
@@ -124,8 +114,47 @@
     background-color: #ADADAD;
 }
 .girar {
-    background-color: #55B3E5;
+    /*background-color: #55B3E5;*/
     -ms-transform: rotate(-90deg); /* IE 9 */
     -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
     transform: rotate(-90deg);
+}
+.bio {
+    width: 80px;
+    position: absolute;
+    height: 170px;
+    top: -10px;
+}
+.ayudas {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #737373;
+}
+@media screen and (max-width: 1024px) {
+.floating-box3 {
+    float: left;
+    width: 50%;
+    display: inline-block;
+}
+.floating-box4 {
+    float: left;
+    width: 50%;
+    display: inline-block;
+}
+.bio {
+    width: 50px;
+    position: absolute;
+    height: 170px;
+    top: -10px;
+}
+.background_perfil {
+    background-color: #fff;
+    opacity: 0.7;
+    width: 95.5%;
+    height: 13%;
+    position: absolute;
+    top: 87%;
+    z-index: 1000;
+}
 }

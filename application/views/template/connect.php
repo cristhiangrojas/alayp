@@ -44,17 +44,17 @@
 		<img src="external/img/fondo.jpg" alt="foto de portada" class="foto_portada">
 		<img src="uploads/newsfeed/panel_centro/Logo_Vibra.png" alt="foto de perfil" class="foto_perfil">
 		<div class="background_perfil">
-		<i class="fa fa-comments fa-4x" aria-hidden="true" style="left: 5%;position: absolute;color: #55B3E5;"></i>
-		<i class="fa fa-plug fa-4x" aria-hidden="true" style="right: 3%;position: absolute;color: #55B3E5;"></i>
+		<i class="fa fa-comments fa-4x icono2" aria-hidden="true"></i>
+		<i class="fa fa-plug fa-4x icono1" aria-hidden="true"></i>
 		</div>
 	</div>
 </div>
 <br>
 <div class="row fondo_noticias">
   <div class="col-xs-6 col-sm-3 padres"><p class="hijo">Claudia Sepúlveda</p></div>
-  <div class="col-xs-6 col-sm-3 padres"><span class="help-block">Country of Origin</span><p class="datos">Chile</p></div>
-  <div class="col-xs-6 col-sm-3 padres"><span class="help-block">Country of current residency</span><p class="datos">Australia</p></div>
-  <div class="col-xs-6 col-sm-3 padres"><span class="help-block">Date of birth</span><p class="datos">28 / Jun / 1988</p></div>
+  <div class="col-xs-6 col-sm-3 padres"><span class="ayudas">Country of Origin</span><p class="datos">Chile</p></div>
+  <div class="col-xs-6 col-sm-3 padres"><span class="ayudas">Country of current residency</span><p class="datos">Australia</p></div>
+  <div class="col-xs-6 col-sm-3 padres"><span class="ayudas">Date of birth</span><p class="datos">28 / Jun / 1988</p></div>
 </div>
 <br>
 <div class="row">
@@ -99,7 +99,7 @@
 <br>
 <div class="row fondo_noticias">
 	<div class="col-xs-2 col-sm-1">
-	BIO
+	<img src="external/img/BIO.png" alt="BIO" class="bio">
 	</div>
 	<div class="col-xs-2 col-sm-11 texto">
 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
