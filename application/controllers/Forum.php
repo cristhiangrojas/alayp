@@ -6,26 +6,14 @@ class Forum extends CI_Controller
 	function __construct()
 	{
 		parent::__construct(); 
-
-		$this->header 	= 'template/header';
-		$this->footer 	= 'template/footer';
-
-		/*VIEW*/
-		$this->content_forum = 'template/forum/forum';
 		$this->content_detalles_forum = 'template/forum/detalles_forum';
 	}
 
-	function index()
-	{
+	function index()	{
 		/*if($this->session->userdata('is_logued_in') == true)
 		{*/
-			$header 					= $this->header;
-			$content_forum 	= $this->content_forum;
-			$footer 					= $this->footer;
-
-			$this->load->view($header);
-			$this->load->view($content_forum);
-			$this->load->view($footer);
+		$data['content'] 	= 'forum/forum';
+		$this->load->view('template/index',$data);
 
 		/*}else{
 
@@ -38,13 +26,8 @@ class Forum extends CI_Controller
 	{
 		/*if($this->session->userdata('is_logued_in') == true)
 		{*/
-			$header 					= $this->header;
-			$content_detalles_forum 	= $this->content_detalles_forum;
-			$footer 					= $this->footer;
-
-			$this->load->view($header);
-			$this->load->view($content_detalles_forum);
-			$this->load->view($footer);
+			$data['content'] 	= 'forum/detalles_forum';
+			$this->load->view('template/index',$data);
 
 		/*}else{
 
