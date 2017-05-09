@@ -14,5 +14,5 @@ class Connect extends CI_Controller
 		$this->load->view('template/index',$data);
 
 	}
-	// Comentario prueba
+	// Comentario prueba con apoyo
 }
