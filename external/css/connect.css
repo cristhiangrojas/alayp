@@ -1,0 +1,131 @@
+.foto_portada {
+	background-color: #fff;
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+}
+.foto_perfil {
+    background-color: #fff;
+    width: 19%;
+    left: 38%;
+    right: 50%;
+    top: 57%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+    z-index: 10000;
+    border: black 3px solid;
+}
+.background_perfil {
+    background-color: #fff;
+    opacity: 0.7;
+    width: 97.1%;
+    height: 13%;
+    position: absolute;
+    top: 87%;
+    z-index: 1000;
+}
+.info_icon {
+    font-size: 17px;
+    color: #55B3E5;
+    width: 100%;
+    top: 75%;
+    position: absolute;
+}
+.padres {
+    height: 90px;
+    text-align: center;
+}
+.hijo {
+	left: 50%;
+    top: 50%;
+    margin: 5% 0 30%;
+    font-size: 25px;
+    font-weight: bold;
+}
+.datos {
+	font-size: 20px;
+	font-weight: bold;
+}
+.tdtitle {
+	color: #817A7A;
+}
+.div_border { border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: #ddd;} 
+.logo {
+	font-weight: bold;
+	color: #000;
+	font-style: normal;
+}
+.floating-box {
+    padding-left: 3%;
+    float: left;
+    width: 106%;
+    margin-left: -10px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #55B3E5;
+}
+.floating-box2 {
+    /*float: left;*/
+    width: auto;
+    display: inline-block;
+    font-size: 17px;
+}
+.floating-box3 {
+    float: left;
+    width: 33%;
+    display: inline-block;
+}
+.floating-box4 {
+    float: left;
+    width: 50%;
+    display: inline-block;
+}
+.alejar {
+    margin-left: 2.7%;
+}
+@media screen and (max-width: 1024px) {
+.floating-box3 {
+    float: left;
+    width: 50%;
+    display: inline-block;
+}
+.floating-box4 {
+    float: left;
+    width: 50%;
+    display: inline-block;
+}
+}
+.texto {
+    overflow: auto;
+    height: 150px;
+}
+
+.texto::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.texto::-webkit-scrollbar
+{
+    width: 8px;
+    background-color: #F5F5F5;
+}
+
+.texto::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #ADADAD;
+}
+.girar {
+    background-color: #55B3E5;
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+}
