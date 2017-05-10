@@ -1,9 +1,4 @@
-	<section id="newsfeed">
-
-		<div class="section_1">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-8 col-lg-8 col-xl-8">
+					<div class="contenido_modal">
 						<div class="row">
 							<div class="col-xs-6 col-sm-12">
 								<img src="<?php echo base_url() ?>external/img/fondo.jpg" alt="foto de portada" class="foto_portada">
@@ -15,14 +10,14 @@
 							</div>
 						</div>
 						<br>
-						<div class="row fondo_noticias">
+						<div class="row fondo_noticias" id="principal">
 						  <div class="col-xs-6 col-sm-3 padres"><p class="hijo">Claudia Sepúlveda</p></div>
 						  <div class="col-xs-6 col-sm-3 padres"><span class="ayudas">Country of Origin</span><p class="datos">Chile</p></div>
 						  <div class="col-xs-6 col-sm-3 padres"><span class="ayudas">Country of current residency</span><p class="datos">Australia</p></div>
 						  <div class="col-xs-6 col-sm-3 padres"><span class="ayudas">Date of birth</span><p class="datos">28 / Jun / 1988</p></div>
 						</div>
 						<br>
-						<div class="row">
+						<div class="row information_divs">
 							<div class="col-xs-6 col-sm-4 fondo_noticias alejar" id="profesional_information">
 								<div class="floating-box">Proffesional Information</div>
 								<div class="floating-box2"><span class="tdtitle">Occupation:</span> COMM & Marketing</div>
@@ -48,7 +43,7 @@
 								<div class="floating-box3 tdtitle">Leadership</div>
 							</div>
 							<div class="col-xs-6 col-sm-3 fondo_noticias alejar">
-									<div class="floating-box">Interests</div>
+									<div class="floating-box" id="interest">Interests</div>
 								<div class="floating-box4 tdtitle">Ingeniering</div>
 								<div class="floating-box4 tdtitle">Ingeniering</div>
 								<div class="floating-box4 tdtitle">Arts</div>
@@ -62,7 +57,7 @@
 							</div>
 						</div>
 						<br>
-						<div class="row fondo_noticias">
+						<div class="row fondo_noticias biografia">
 							<div class="col-xs-2 col-sm-1">
 							<img src="<?php echo base_url() ?>external/img/BIO.png" alt="BIO" class="bio">
 							</div>
@@ -90,6 +85,7 @@
 							</div>
 						</div>
 						<br>
+						<br>
 						<center>
 						<div class="btn-group">
 						  <button type="button" class="btn btn-default"><i class="logo">Linked</i>&nbsp;<i class="fa fa-linkedin-square logos"></i></button>
@@ -101,44 +97,5 @@
 						</center>
 
 					</div>
-					<div class="col-md-4 col-lg-4 col-xl-4">
-						<div class="fondo_sponsors">
-							<h6>Sponsors</h6>
-							<!--<img src="<?php echo base_url() ?>external/img/sponsors.jpg" alt="" class="img-responsive" style="width: 100%;">
-							<img src="<?php echo base_url() ?>external/img/sponsors1.jpg" alt="" class="img-responsive" style="width: 100%;">!
-							<?php 
-
-				                if ( count($listado_panel_centro_sponsors) > 0 ) 
-				                {
-				                  foreach ($listado_panel_centro_sponsors as $row)
-				                  {
-				                    echo '<img src="'.base_url().'uploads/newsfeed/panel_derecha/sponsors/'.$row->imagen.'" class="img-responsive" style="width: 100%;" />';
-				                  }
-				                }else{
-				                  echo "";
-				                }
-
-				              ?>
-						</div><br />
-						<div class="fondo_sponsors">
-							<h6>Connect</h6>
-							<!--<img src="<?php echo base_url() ?>external/img/connect.jpg" alt="" class="img-responsive">!-->
-							<?php 
-
-				                if ( count($listado_panel_centro_connect) > 0 ) 
-				                {
-				                  foreach ($listado_panel_centro_connect as $row)
-				                  {
-				                    echo '<img src="'.base_url().'uploads/newsfeed/panel_derecha/connect/'.$row->imagen.'" class="img-responsive" style="width: 100%;" />';
-				                  }
-				                }else{
-				                  echo "";
-				                }
-
-				              ?>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+					<br>
+					<br>

@@ -14,5 +14,17 @@ class Connect extends CI_Controller
 		$this->load->view('template/index',$data);
 
 	}
+	public function user(){
+		$data['content'] 	= 'connect_user';
+		$data['listado_panel_centro_sponsors'] = $this->newsfeed_ml->listado_panel_centro_sponsors();
+		$data['listado_panel_centro_connect'] = $this->newsfeed_ml->listado_panel_centro_connect();
+		$this->load->view('template/index',$data);
+	}
+	public function connect_modal(){
+		$data['content'] 	= 'connect_modal';
+		$data['listado_panel_centro_sponsors'] = $this->newsfeed_ml->listado_panel_centro_sponsors();
+		$data['listado_panel_centro_connect'] = $this->newsfeed_ml->listado_panel_centro_connect();
+		$this->load->view('template/connect_modal');
+	}
 	// Comentario prueba con apoyo
 }

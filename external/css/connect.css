@@ -1,3 +1,9 @@
+div#mdialTamanio {
+    width: 80% !important;
+}
+.contenido_modal .row div.background_perfil {
+    width: 97.7%;
+}
 .foto_portada {
 	background-color: #fff;
     height: 100%;
@@ -19,6 +25,7 @@
     z-index: 10000;
     border: black 3px solid;
 }
+
 .hr {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -165,6 +172,11 @@
 
     min-width: 50px;
 }
+.paddingb {
+    padding-top: 5%;
+    padding-bottom: 7%;
+    min-width: 50px;
+}
 .search {
     padding-bottom: 10%;
     padding-left: 4%;
@@ -210,6 +222,12 @@
     border-radius: 20px;
     color: #817A7A;
 }
+.search .btn-default:focus {
+    outline:0px;
+}
+.btn_connect:focus, .btn_connect:active, .btn_connect:hover, .btn_connect:after  {
+    outline:0px;
+}
 .search .btn-default:hover {
     background-color: #55B3E5;
     color: #fff;
@@ -230,6 +248,141 @@
     background-color: #EDEDED;
     border-radius: 20px;
 }
+.inputkey {
+    border: 1px solid #DBE1EB;
+    font-size: 14px;
+    font-family: Arial, Verdana;
+    padding-left: 25px;
+    padding-top: 5px;
+    border-radius: 20px !important;
+    padding-bottom: 4px;
+    top: 0px;
+    left: 14px;
+    position: absolute;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    background: #FFFFFF;
+    background: linear-gradient(left, #FFFFFF, #F7F9FA);
+    background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+    background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+    background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+    color: #817A7A;
+}
+.keyword {
+    position: absolute;
+    z-index: 1000;
+    left: 40px;
+    top: -13px;
+    background-color: #fff;
+    color: #817A7A;
+}
+
+.padding .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
+    color: #FFF;
+    background-color: #55B3E5;
+    border-color: #8c8c8c;
+}
+.inputkey:focus {
+    outline:0px;
+}
+.interest {
+    padding-left: 14%;
+    padding-right: 6%;
+}
+.interest .input-group {
+    width: 75%;   
+}
+.interest .fa {
+    margin-left: -100%;
+    color: #E3E3E3;
+    font-size: 20px;
+}
+.button_search {
+    width: 30%;
+    height: 51px;
+    font-size: 22px;
+    background-color: #55b3e5;
+    color: #fff;
+}
+.interest .input-group-addon {
+    background-color: #EDEDED;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+    padding-left: 12%;
+}
+
+.interest .input-group .checkedt {
+    color: #000;
+}
+.interest .input-group .checked {
+    background-color: #55B3E5;
+    color: #FFF;
+}
+
+.interest .input_group {
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+    background-color: #FFF;
+    color: #E8DDDB;
+    font-size: 18px;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select:none;
+    user-select:none; 
+}
+.contenido_modal .fondo_noticias.row {
+    width: 83%;
+    padding-left: 9%;
+}
+.contenido_modal .information_divs {
+    width: 90%;
+    padding-left: 7%;
+}
+.contenido_modal #principal {
+    background: #fff;
+    width: 83%;
+    padding: 10px;
+    margin-left: 7%;
+    -webkit-box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75); 
+}
+.contenido_modal .floating-box {
+    width: 104.5%;
+}
+
+.contenido_modal .bio {
+    width: 74px;
+    position: absolute;
+    height: 160px;
+    top: -10px;
+}
+.contenido_modal .biografia {
+    margin-left: 85px;
+    padding-left: 19px !important;
+    padding-right: 10px;
+    -webkit-box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
+}
+.contenido_modal .information_divs .fondo_noticias {
+    -webkit-box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);   
+}
+.contenido_modal .floating-box {
+    margin-left: 1px !important;
+}
+.contenido_modal #interest {
+    margin-left: -4px !important;
+    width: 108.1%;
+
+}
+
 @media screen and (max-width: 1024px) {
 .floating-box3 {
     float: left;
@@ -316,5 +469,70 @@
 }
 .padding {
     margin-left: -18px;
+}
+.inputkey {
+    width: 120px;
+    height: 30px;
+    left: -4px;
+}
+.margin {
+    margin-left: -18px;
+}
+.keyword {
+    left: 22px;
+}
+.interest .input_group {
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+    background-color: #FFF;
+    color: #E8DDDB;
+    font-size: 16px;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select:none;
+    user-select:none; 
+}
+.interest .input-group {
+    width: 100%;   
+}
+.interest {
+    padding-left: 10%;
+    padding-right: 6%;
+}
+.contenido_modal .row div.background_perfil {
+    width: 96.4%;
+}
+.contenido_modal .information_divs {
+    width: 92%;
+    padding-left: 7%;
+}
+.contenido_modal .floating-box4 {
+    float: left;
+    font-size: 12px;
+    width: 50%;
+    /* display: inline-block; */
+}
+.contenido_modal #profesional_information .tdtitle {
+    font-size: 14px;
+}
+.contenido_modal #profesional_information .floating-box2 {
+    font-size: 14px;
+}
+.contenido_modal .biografia {
+    margin-left: 60px;
+    padding-left: 0px !important;
+}
+.contenido_modal .bio {
+    width: 47px;
+    height: 156px;
+    top: -5px;
+}
+.contenido_modal .floating-box {
+    width: 106.9%;
+}
+.contenido_modal #interest {
+    width: 113.1%;
 }
 }
