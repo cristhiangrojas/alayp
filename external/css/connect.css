@@ -19,14 +19,25 @@
     z-index: 10000;
     border: black 3px solid;
 }
-.background_perfil {
+.hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #B9B9B9
+}
+.foto_perfilp {
     background-color: #fff;
-    opacity: 0.7;
-    width: 97.1%;
-    height: 13%;
-    position: absolute;
-    top: 87%;
-    z-index: 1000;
+    width: 70%;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+    z-index: 10000;
+    margin-top: -5%;
+    margin-bottom: 5%;    
 }
 .info_icon {
     font-size: 17px;
@@ -36,7 +47,7 @@
     position: absolute;
 }
 .padres {
-    height: 90px;
+    height: 60px;
     text-align: center;
 }
 .hijo {
@@ -45,6 +56,17 @@
     margin: 5% 0 30%;
     font-size: 25px;
     font-weight: bold;
+}
+.centrado {
+    margin-top: 2%;
+}
+.profesion {
+    color: #55B3E5;
+    font-size: 20px;
+}
+.nombre {
+    color: #000;
+    font-size: 20px;
 }
 .datos {
 	font-size: 20px;
@@ -58,6 +80,16 @@
 	font-weight: bold;
 	color: #000;
 	font-style: normal;
+    font-size: 2em;
+}
+.logos {
+    font-weight: bold;
+    color: #000;
+    font-style: normal;
+    font-size: 2em;
+}
+.fa_down {
+    float: right;
 }
 .floating-box {
     padding-left: 3%;
@@ -87,23 +119,23 @@
 .alejar {
     margin-left: 2.7%;
 }
-@media screen and (max-width: 1024px) {
-.floating-box3 {
-    float: left;
-    width: 50%;
-    display: inline-block;
-}
-.floating-box4 {
-    float: left;
-    width: 50%;
-    display: inline-block;
-}
-}
+
 .texto {
     overflow: auto;
     height: 150px;
 }
-
+.background_perfil {
+    background-color: #fff;
+    opacity: 0.7;
+    width: 97.1%;
+    height: 13%;
+    position: absolute;
+    top: 87%;
+    z-index: 1000;
+}
+.btn_grupo {
+    line-height: 2;
+}
 .texto::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -116,7 +148,28 @@
     width: 8px;
     background-color: #F5F5F5;
 }
+.icono1 {
+    right: 3%;
+    position: absolute;
+    color: #55B3E5;
+    font-size: 4em;
+}
+.icono2 {
+    left: 5%;
+    position: absolute;
+    color: #55B3E5;
+    font-size: 4em;
+}
+.padding {
+    padding-bottom: 2%;
 
+    min-width: 50px;
+}
+.search {
+    padding-bottom: 10%;
+    padding-left: 4%;
+    padding-right: 6%;    
+}
 .texto::-webkit-scrollbar-thumb
 {
     border-radius: 10px;
@@ -124,8 +177,144 @@
     background-color: #ADADAD;
 }
 .girar {
-    background-color: #55B3E5;
+    /*background-color: #55B3E5;*/
     -ms-transform: rotate(-90deg); /* IE 9 */
     -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
     transform: rotate(-90deg);
+}
+.bio {
+    width: 80px;
+    position: absolute;
+    height: 170px;
+    top: -10px;
+}
+.ayudas {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #737373;
+}
+.bold {
+    font-weight: bold;
+}
+.persona {
+    margin-left: 5px;
+}
+.btn_connect {
+    border-radius: 15px;
+    background-color: #ededed;
+}
+.search .btn-default {
+    width: auto;
+    min-width: 200px;
+    border-radius: 20px;
+    color: #817A7A;
+}
+.search .btn-default:hover {
+    background-color: #55B3E5;
+    color: #fff;
+}
+.search .btn-default:active {
+    background-color: #55B3E5;
+    color: #fff;
+}
+.search .btn-default:focus {
+    background-color: #55B3E5;
+    color: #fff;
+}
+.btn_connect > i {
+    color: #737373;
+    font-weight: normal;
+}
+.contenido {
+    background-color: #EDEDED;
+    border-radius: 20px;
+}
+@media screen and (max-width: 1024px) {
+.floating-box3 {
+    float: left;
+    width: 50%;
+    display: inline-block;
+}
+.floating-box4 {
+    float: left;
+    width: 50%;
+    display: inline-block;
+}
+.bio {
+    width: 50px;
+    position: absolute;
+    height: 170px;
+    top: -10px;
+}
+.background_perfil {
+    background-color: #fff;
+    opacity: 0.7;
+    width: 95.5%;
+    height: 13%;
+    position: absolute;
+    top: 87%;
+    z-index: 1000;
+}
+.icono1 {
+    right: 3%;
+    position: absolute;
+    color: #55B3E5;
+    font-size: 3em;
+}
+.icono2 {
+    left: 5%;
+    position: absolute;
+    color: #55B3E5;
+    font-size: 3em;
+}
+.padres {
+    height: 80px;
+    text-align: center;
+}
+.logo {
+    font-weight: bold;
+    color: #000;
+    font-style: normal;
+    font-size: 1em;
+}
+.logos {
+    font-weight: bold;
+    color: #000;
+    font-style: normal;
+    font-size: 1em;
+}
+.centrado {
+    margin-top: 10%;
+}
+.nombre {
+    color: #000;
+    font-size: 15px;
+}
+.profesion {
+    color: #55B3E5;
+    font-size: 15px;
+}
+.btn_connect {
+    width: 100%;
+    line-height: 3;
+}
+.foto_perfilp {
+    width: 122%;
+    margin-left: -4%;
+    margin-top: 20%;
+}
+.search {
+    padding-bottom: 20%;
+    padding-left: 0%;
+    padding-right: 0%;  
+}
+.search .btn-default {
+    width: auto;
+    min-width: 120px;
+    border-radius: 20px;
+}
+.padding {
+    margin-left: -18px;
+}
 }

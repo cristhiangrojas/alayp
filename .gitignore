@@ -7,3 +7,7 @@ external/css/skins/
 external/img/
 external/js/language/
 external/js/framework/
+.phpintel/
+.phpintel/index
+sftp-config.json
+.phpintel/index
