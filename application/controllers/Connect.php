@@ -24,7 +24,7 @@ class Connect extends CI_Controller
 		}else {
 			$id_user = $_SESSION['id_usuario'];
 		}
-		$data['user'] = $this->main_model->get_user($id_user);
+		$data['user'] = $this->main_model->get_user($id_user)->result()[0];
 		$this->load->view('template/index',$data);
 	}
 	public function connect_modal(){

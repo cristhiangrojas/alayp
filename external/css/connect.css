@@ -530,15 +530,5 @@ div#mdialTamanio {
 
   .contenido_modal #interest {
     width: 113.1%; } }
-.grid_user {
-  background-color: #fff;
-  -webkit-box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
-  box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
-  padding: 0; }
-  .grid_user .title_grid {
-    color: #fff;
-    font-weight: bold;
-    background-color: #55B3E5; }
 
 /*# sourceMappingURL=connect.css.map */
