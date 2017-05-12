@@ -18,6 +18,13 @@ class Connect extends CI_Controller
 		$data['content'] 	= 'connect_user';
 		$data['listado_panel_centro_sponsors'] = $this->newsfeed_ml->listado_panel_centro_sponsors();
 		$data['listado_panel_centro_connect'] = $this->newsfeed_ml->listado_panel_centro_connect();
+		$uri = $this->uri->segment(3);
+		if($uri != null){
+			$id_user = $uri;
+		}else {
+			$id_user = $_SESSION['id_usuario'];
+		}
+		$data['user'] = $this->main_model->get_user($id_user)->result()[0];
 		$this->load->view('template/index',$data);
 	}
 	public function connect_modal(){

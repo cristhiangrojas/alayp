@@ -12,6 +12,50 @@ class Ajax extends CI_Controller {
 	public function index()	{
 			
 	}
+	public function add_forum(){
+		$title = $this->input->post('title');
+		$content = $this->input->post('content');
+		$id_user = $_SESSION['id_usuario'];
+		$fecha = date('Y-m-d H:i:s');
+		$data = array(
+			'date' => $fecha,
+			'title' => $title,
+			'content' => $content,
+			'type' => 'head',
+			'id_user' => $id_user
+		);
+		$this->db->insert('forum',$data);
+		$this->db->select('U.nombres, forum.*');
+		$this->db->join('usuario AS U','U.id_usuario=forum.id_user');
+		$this->db->where('id_user',$id_user);
+		$this->db->where('type','head');
+		$this->db->order_by('date','desc');
+		$sql = $this->db->get('forum',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);
+	}
+	public function reply_forum(){
+		$content = $this->input->post('content');
+		$id_forum = $this->input->post('id');
+		$id_user = $_SESSION['id_usuario'];
+		$data = array(
+			'date' => date('Y-m-d H:i:s'),
+			'content' => $content,
+			'parent' => $id_forum,
+			'type' => 'reply',
+			'id_user' => $id_user
+		);
+		$this->db->insert('forum',$data);
+		$this->db->select('U.nombres, forum.*');
+		$this->db->join('usuario AS U','U.id_usuario=forum.id_user');
+		$this->db->where('id_user',$id_user);
+		$this->db->where('type','reply');
+		$this->db->order_by('date','desc');
+		$sql = $this->db->get('forum',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);
+	}
+
 	public function check_user(){
 		$user = $_POST['user'];
 		$this->db->select('usuario');

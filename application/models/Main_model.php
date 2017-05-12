@@ -27,6 +27,44 @@ class Main_model extends CI_Model {
 		$this->db->insert('usuario',$data);
 		return true;
 	}
+	function forum_by_id($id){
+		$this->db->select('U.nombres, forum.*');
+		$this->db->join('usuario AS U','U.id_usuario=forum.id_user');
+		$this->db->where('forum.id',$id);
+		$this->db->order_by('date','desc');
+		$sql = $this->db->get('forum',15);
+		return $sql;
+	}
+	function get_user($id){
+		$this->db->where('id_usuario',$id);
+		$sql = $this->db->get('usuario');
+		return $sql;
+	}
+	function last_foros(){
+		$this->db->select('U.nombres, forum.*');
+		$this->db->join('usuario AS U','U.id_usuario=forum.id_user');
+		$this->db->where('type','head');
+		$this->db->order_by('date','desc');
+		$sql = $this->db->get('forum',15);
+		return $sql;
+	}
+	function find_forum($val){
+		$this->db->select('U.nombres, forum.*');
+		$this->db->join('usuario AS U','U.id_usuario=forum.id_user');
+		$this->db->like('title',$val);
+		$this->db->order_by('date','desc');
+		$sql = $this->db->get('forum');
+		return $sql;
+	}
+	function replys_forum($id){
+		$this->db->select('U.nombres, forum.*');
+		$this->db->join('usuario AS U','U.id_usuario=forum.id_user');
+		$this->db->where('forum.parent',$id);
+		$this->db->order_by('date','asc');
+		$sql = $this->db->get('forum');
+		return $sql;
+	}
+
 
 }
 

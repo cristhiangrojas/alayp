@@ -6,6 +6,22 @@
 					<div class="col-md-8 col-lg-8 col-xl-8">
 						<div class="fondo_noticias">
 								<div class="search">
+<<<<<<< HEAD
+								<h2>CONNECT WITH OTHERS</h2>
+									<div>
+										<div class="col-xs-6 col-sm-3 padding">
+											<span class="key_word">Key word</span>
+											<input type="text" class="input_key">
+										</div>
+										<div class="col-xs-6 col-sm-3 padding">
+											<button type="button" class="btn btn-default">Professional</button>
+										</div>
+										<div class="col-xs-6 col-sm-3 padding">
+											<button type="button" class="btn btn-default">Entrepreneur</button>
+										</div>
+										<div class="col-xs-6 col-sm-3 padding">
+											<button type="button" class="btn btn-default">Company / Organisation</button>
+=======
 									<h2>CONNECT WITH OTHERS</h2>
 									<br>
 									<div>
@@ -21,6 +37,7 @@
 										</div>
 										<div class="col-xs-6 col-sm-3 padding">
 											<button type="button" class="btn btn-default margin">Company / Organisation</button>
+>>>>>>> refs/remotes/origin/apoyo
 										</div>
 									</div>
 									<div>
@@ -77,6 +94,9 @@
 										  </div>
 										</div>
 									</div>
+<<<<<<< HEAD
+								</div>
+=======
 								</div>
 								<div class="interest">
 									<div class="row">
@@ -255,10 +275,48 @@
 										<button type="button" class="btn btn-primary button_search">Search</button>
 									</center>
 								</div>
+>>>>>>> refs/remotes/origin/apoyo
 								<div class="row persona">
 								<div class="col-xs-6 col-sm-9 contenido">
 									<div class="col-xs-6 col-sm-3 centrado">
 										<img src="external/img/avatar2.jpg" alt="foto de perfil" class="foto_perfilp">
+<<<<<<< HEAD
+									</div>
+									<div class="col-xs-6 col-sm-4 centrado">
+										<div class="floating-box2"><span class="nombre">Claudia Sepúlveda</span></div>
+										<div class="floating-box2"><span class="profesion">COMM & Marketing</span></div>
+									</div>
+									<div class="col-xs-6 col-sm-5">
+										<div class="floating-box2"><span class="tdtitle bold">Located In -</span> <span class="tdtitle">Australia</span></div>
+										<div class="floating-box2"><span class="tdtitle bold">Industry -</span><span class="tdtitle"> Marketing</span></div>
+										<div class="floating-box2"><span class="tdtitle bold">Languages -</span><span class="tdtitle"> English / Spanish</span></div>
+										<div class="floating-box2"><span class="tdtitle bold">Education background -</span><span class="tdtitle"> Master</span></div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-3 centrado">
+									<button type="button" class="btn btn-default btn_connect"><i class="logo">Connect</i>&nbsp;<i class="fa fa-plug logos"></i></button>
+								</div>
+							</div>
+							<hr class="hr">
+								<div class="row persona">
+								<div class="col-xs-6 col-sm-9 contenido">
+									<div class="col-xs-6 col-sm-3 centrado">
+										<img src="external/img/avatar2.jpg" alt="foto de perfil" class="foto_perfilp">
+									</div>
+									<div class="col-xs-6 col-sm-4 centrado">
+										<div class="floating-box2"><span class="nombre">Claudia Sepúlveda</span></div>
+										<div class="floating-box2"><span class="profesion">COMM & Marketing</span></div>
+									</div>
+									<div class="col-xs-6 col-sm-5">
+										<div class="floating-box2"><span class="tdtitle bold">Located In -</span> <span class="tdtitle">Australia</span></div>
+										<div class="floating-box2"><span class="tdtitle bold">Industry -</span><span class="tdtitle"> Marketing</span></div>
+										<div class="floating-box2"><span class="tdtitle bold">Languages -</span><span class="tdtitle"> English / Spanish</span></div>
+										<div class="floating-box2"><span class="tdtitle bold">Education background -</span><span class="tdtitle"> Master</span></div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-3 centrado">
+									<button type="button" class="btn btn-default btn_connect"><i class="logo">Connect</i>&nbsp;<i class="fa fa-plug logos"></i></button>
+=======
 									</div>
 									<div class="col-xs-6 col-sm-4 centrado">
 										<div class="floating-box2"><span class="nombre">Claudia Sepúlveda</span></div>
@@ -294,6 +352,7 @@
 								</div>
 								<div class="col-xs-6 col-sm-3 centrado">
 									<button type="button" class="btn btn-default btn_connect" onclick="activate_modal()"><i class="logo">Connect</i>&nbsp;<i class="fa fa-plug logos"></i></button>
+>>>>>>> refs/remotes/origin/apoyo
 								</div>
 							</div>
 							<hr class="hr">
