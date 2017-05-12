@@ -708,7 +708,7 @@ a {
 
 #forum .section_1 .fondo_noticias {
   background: #fff;
-  padding: 10px;
+  padding: 0px;
   -webkit-box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75);
   box-shadow: 9px 9px 9px -11px rgba(0, 0, 0, 0.75); }

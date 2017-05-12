@@ -1,18 +1,12 @@
 	<section id="newsfeed">
-
 		<div class="section_1">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-8 col-lg-8 col-xl-8">
 						<div class="row">
 							<div class="col-xs-6 col-sm-12">
-<<<<<<< HEAD
-								<img src="external/img/fondo.jpg" alt="foto de portada" class="foto_portada">
-								<img src="external/img/avatar2.jpg" alt="foto de perfil" class="foto_perfil">
-=======
 								<img src="<?php echo base_url() ?>external/img/fondo.jpg" alt="foto de portada" class="foto_portada">
 								<img src="<?php echo base_url() ?>external/img/avatar2.jpg" alt="foto de perfil" class="foto_perfil">
->>>>>>> refs/remotes/origin/apoyo
 								<div class="background_perfil">
 								<i class="fa fa-comments icono2" aria-hidden="true"></i>
 								<i class="fa fa-plug icono1" aria-hidden="true"></i>
@@ -27,13 +21,17 @@
 						  <div class="col-xs-6 col-sm-3 padres"><span class="ayudas">Date of birth</span><p class="datos">28 / Jun / 1988</p></div>
 						</div>
 						<br>
-						<div class="row">
-							<div class="col-xs-6 col-sm-4 fondo_noticias alejar" id="profesional_information">
-								<div class="floating-box">Proffesional Information</div>
-								<div class="floating-box2"><span class="tdtitle">Occupation:</span> COMM & Marketing</div>
-								<div class="floating-box2"><span class="tdtitle">Industry:</span> Advertising</div>
-								<div class="floating-box2"><span class="tdtitle">Education Background:</span> Master Degree</div>
-								<div class="floating-box2"><span class="tdtitle">Languages:</span> Spanish / English</div>
+						<div class="row equal_row">
+							<div class="col-xs-6 col-sm-4" id="profesional_information">
+								<div class="grid_user">
+									<div class="title_grid">Proffesional Information</div>
+									<div>
+										<div class="floating-box2"><span class="tdtitle">Occupation:</span> COMM & Marketing</div>
+										<div class="floating-box2"><span class="tdtitle">Industry:</span> Advertising</div>
+										<div class="floating-box2"><span class="tdtitle">Education Background:</span> Master Degree</div>
+										<div class="floating-box2"><span class="tdtitle">Languages:</span> Spanish / English</div>
+									</div>
+								</div>
 							</div>
 							<div class="col-xs-6 col-sm-4 fondo_noticias alejar" id="skills">
 									<div class="floating-box">Skills</div>
@@ -69,11 +67,8 @@
 						<br>
 						<div class="row fondo_noticias">
 							<div class="col-xs-2 col-sm-1">
-<<<<<<< HEAD
 							<img src="external/img/BIO.png" alt="BIO" class="bio">
-=======
 							<img src="<?php echo base_url() ?>external/img/BIO.png" alt="BIO" class="bio">
->>>>>>> refs/remotes/origin/apoyo
 							</div>
 							<div class="col-xs-2 col-sm-11 texto">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

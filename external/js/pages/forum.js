@@ -86,3 +86,8 @@ $(document).ready(function(){
 		var minute = date.getMinutes();
 		return monthNames[monthIndex]+' '+day+' '+year+' at '+hour+':'+minute;
 	}
+	function search_forum(){
+		$('#search_forum').click(function(){
+			$('#form_search').submit();
+		});
+	}

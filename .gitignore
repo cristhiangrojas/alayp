@@ -17,3 +17,4 @@ sftp-config.json
 .phpintel/4320c8279216673e8fad963bc2c7dc74
 sftp-config.json
 .gitignore
+*.scssc
