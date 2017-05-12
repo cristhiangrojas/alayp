@@ -6,8 +6,13 @@
 					<div class="col-md-8 col-lg-8 col-xl-8">
 						<div class="row">
 							<div class="col-xs-6 col-sm-12">
+<<<<<<< HEAD
 								<img src="external/img/fondo.jpg" alt="foto de portada" class="foto_portada">
 								<img src="external/img/avatar2.jpg" alt="foto de perfil" class="foto_perfil">
+=======
+								<img src="<?php echo base_url() ?>external/img/fondo.jpg" alt="foto de portada" class="foto_portada">
+								<img src="<?php echo base_url() ?>external/img/avatar2.jpg" alt="foto de perfil" class="foto_perfil">
+>>>>>>> refs/remotes/origin/apoyo
 								<div class="background_perfil">
 								<i class="fa fa-comments icono2" aria-hidden="true"></i>
 								<i class="fa fa-plug icono1" aria-hidden="true"></i>
@@ -64,7 +69,11 @@
 						<br>
 						<div class="row fondo_noticias">
 							<div class="col-xs-2 col-sm-1">
+<<<<<<< HEAD
 							<img src="external/img/BIO.png" alt="BIO" class="bio">
+=======
+							<img src="<?php echo base_url() ?>external/img/BIO.png" alt="BIO" class="bio">
+>>>>>>> refs/remotes/origin/apoyo
 							</div>
 							<div class="col-xs-2 col-sm-11 texto">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
