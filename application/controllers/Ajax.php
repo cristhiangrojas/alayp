@@ -73,6 +73,15 @@ class Ajax extends CI_Controller {
 		echo json_encode($this->response);
 	}
 
+	public function agregar_skill() {
+		$data['title'] = $this->input->post('title');
+		$this->db->insert('skills', $data);
+		$this->db->order_by('id','desc');
+		$sql = $this->db->get('skills',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);
+		
+	}
 	/* Comentario */
 }
 
