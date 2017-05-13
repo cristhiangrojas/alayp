@@ -233,7 +233,19 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Empresario</a></li>
           </ul>
         </li>
-        <li><a href="<?php echo base_url() ?>administrador/dashboard"><i class="fa fa-gears"></i> <span>Configuración</span></a></li>
+        <!-- <li><a href="<?php echo base_url() ?>administrador/dashboard"><i class="fa fa-gears"></i> <span>Configuración</span></a></li> -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Configuración</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url() ?>administrador/dashboard/skills"><i class="fa fa-circle-o"></i> Skills</a></li>
+            <li><a href="<?php echo base_url() ?>administrador/dashboard/interest"><i class="fa fa-circle-o"></i> Interest</a></li>
+          </ul>
+        </li>
         <li><a href="<?php echo base_url() ?>administrador/dashboard"><i class="fa fa-tv"></i> <span>Sitio Web</span></a></li>
         <li><a href="<?php echo base_url() ?>administrador/dashboard/logout"><i class="fa fa-power-off"></i> <span>Salir</span></a></li>
 
