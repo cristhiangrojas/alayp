@@ -110,5 +110,22 @@ class Newsfeed_ml extends CI_Model {
         $this->db->where('id_newsfeed_panel_derecha_connect',$data['id_newsfeed_panel_derecha_connect']);
         return $this->db->update('newsfeed_panel_derecha_connect', $data);
     }
+
+    function listado_skills() {
+        $this->db->select('skills.*', FALSE);
+
+        $this->db->order_by('skills.id', 'ASC');
+        
+        $consulta = $this->db->get('skills');
+
+        if($consulta->num_rows()>0)
+        {
+            foreach($consulta->result() as $fila)
+            {
+                $data[] = $fila;
+            }
+                return $data;
+        }
+    }
 }
 ?>

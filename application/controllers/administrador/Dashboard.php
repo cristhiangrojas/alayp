@@ -34,7 +34,7 @@ class Dashboard extends CI_Controller
 		if($this->session->userdata('is_logued_in') == true)
 		{
 
-			$datos['lista_skills'] = 0;
+			$datos['lista_skills'] = $this->newsfeed_ml->listado_skills();
 			$header 	= $this->header;
 			$content 	= "dashboard/modulos/menu/skills";
 			$footer 	= $this->footer;
@@ -49,7 +49,6 @@ class Dashboard extends CI_Controller
 			redirect('login', 'refresh');
 		}
 	}
-
 	function logout()
 	{
 	   $this->session->unset_userdata('logged_in');

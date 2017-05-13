@@ -13,38 +13,78 @@
 </div>
 
 	<div class="box-body">
-		<form class="form-horizontal">
+		<form class="form-horizontal" method="POST" id="formulario">
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">Skill</label>
 				<div class="col-sm-5">
-					<input type="email" class="form-control" id="inputEmail3" placeholder="Skill">
+					<input type="text" class="form-control" id="titulo" placeholder="Skill" name="title">
+					<input type="hidden" name="id" id="id_skill">
+					<input type="hidden" name="type" value="1" id="type">
 				</div>
 				<div class="col-sm-5">
-					<button type="submit" class="btn btn-default">Add</button>
+					<button type="submit" class="btn btn-default" id="button">Add</button>
 				</div>
 			</div>
+		</form>
 			<div class="col-sm-12">
-			<?php if($lista_skills > 0) { ?>
-				<div class="dropdown">
-					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-						Dropdown
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-						<li><a href="#">Editar</a></li>
-						<li><a href="#"></a></li>
-					</ul>
-				</div>
+								<div class="container" style="background-color: #ecf0f5;    padding: 10px;" id="insercciones">
+<?php
 
-<?php }
-		else {
+			 if($lista_skills > 0) {
+								 	foreach ($lista_skills as $row) {
+								 		?>
+												<div class="btn-group" id="<?php echo $row->id; ?>">
+												  <button type="button" class="btn btn-primary" id='button_<?php echo $row->id; ?>'><?php echo $row->title ?></button>
+												  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												    <span class="caret"></span>
+												    <span class="sr-only">Toggle Dropdown</span>
+												  </button>
+												  <ul class="dropdown-menu">
+												    <li><a onclick="editar_skill('<?php echo $row->id; ?>','<?php echo $row->title; ?>');">Editar</a></li>
+												    <li><a href="#modal-delete" data-toggle="modal" onclick="elimiar_skill('<?php echo $row->id; ?>');">Eliminar</a></li>
+												  </ul>
+												</div>
+								 		<?php
+								 	}
+						?>
+					<?php 
+			}else {
 			?>
+			<div id="zero">
 			<center>No hay Registros</center>
+			</div>
 			<?php
 		}
  ?>
+					</div>
 			</div>
-		</form>
 	</div>
 </div>
 </div>
+
+<div id="modal-delete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form method="POST" id="formularioEl">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="cerrar_modal">×</button>
+          <h5 id="myModalLabel">Elimina registro</h5>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="idSkill" name="id"/>
+          <h5 style="text-align: center">¿Esta seguro de eliminar este registro?</h5>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+$(function() {
+	validateForm();
+})
+</script>

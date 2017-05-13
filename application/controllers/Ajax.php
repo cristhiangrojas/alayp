@@ -73,6 +73,37 @@ class Ajax extends CI_Controller {
 		echo json_encode($this->response);
 	}
 
+	public function agregar_skill() {
+		$data['title'] = $this->input->post('title');
+		$this->db->insert('skills', $data);
+		$this->db->order_by('id','desc');
+		$sql = $this->db->get('skills',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);		
+	}
+	function editar_skill() {
+
+		$data['title'] = $this->input->post('title');
+		$data['id'] = $this->input->post('id');
+		$this->db->select('skills.*', FALSE);
+        $this->db->where('skills.id', $data['id']);
+		$upd = $this->db->update('skills', $data);
+		if ($upd == true) {
+			$this->db->select('skills.*', FALSE)
+					->where('id',$data['id']);
+			$sql = $this->db->get('skills',1);
+			$this->response['data'] = $sql->result();
+			echo json_encode($this->response);
+		}	
+	}
+	function eliminar_skill() {
+		$data['id'] = $this->input->post('id');
+		$delete = $this->db->delete('skills', $data);
+		if ($delete == true) {
+			$this->response['data'] = $data;
+			echo json_encode($this->response);
+		}	
+	}
 	/* Comentario */
 }
 
