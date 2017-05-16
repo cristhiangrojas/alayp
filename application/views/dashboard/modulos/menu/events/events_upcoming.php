@@ -35,6 +35,18 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-2 control-label">Time</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" value="00:00:00" id="clockpicker" readonly name="time">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-2 control-label">Location</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="location" name="location" required placeholder="Location">
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">Speakers</label>
 				<div class="col-sm-10">
 					<a href="#modal-conferencist" data-toggle="modal">Speakers</a>
@@ -99,7 +111,7 @@
 			</div>
 		</form>
 		<div class="col-sm-12">
-			<div class="container" style="background-color: #ecf0f5;    padding: 10px;" id="insercciones">
+			<div style="background-color: #ecf0f5;    padding: 10px;" id="insercciones">
 				<div class="table-responsive">
 					<table id="example1" class="table table-bordered table-striped text-center">
 						<thead>
@@ -108,6 +120,8 @@
 								<th>Title</th>
 								<th>Description</th>
 								<th>Date</th>
+								<th>Time</th>
+								<th>Location</th>
 								<th>Conferencist</th>
 								<th>Registry Link</th>
 								<th>Registration Processes</th>
@@ -125,6 +139,8 @@
 								<td><?php echo $row->title; ?></td>
 								<td><?php echo $row->description; ?></td>
 								<td><?php echo $row->date; ?></td>
+								<td><?php echo $row->time; ?></td>
+								<td><?php echo $row->location; ?></td>
 								<td><?php echo $row->conferencist; ?></td>
 								<td><a href="<?php echo $row->registry_link; ?>" target="_blank">Registry Link</a></td>
 								<td><a href="<?php echo $row->registration_processes; ?>" target="_blank">Registration Processes</a></td>
@@ -147,7 +163,7 @@
 		<div class="modal-content">
 			<form method="POST" id="speakers" enctype="multipart/form-data" class="form-horizontal">
 				<input type="hidden" id="tipo_speakers" value="1">
-				<input type="hidden" id="sid" value="<?php echo $last_id_speakers == 0 ? '1' : $last_id_speakers + 1  ?>" name="sid">
+				<input type="text" id="sid" value="<?php echo $last_id_speakers == 0 ? '1' : $last_id_speakers + 1  ?>" name="sid">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="cerrar_modal">×</button>
 					<h5 id="myModalLabel">Speakers</h5>
@@ -199,6 +215,14 @@ $(function() {
 	$( "#date" ).datepicker({
 		format: 'yyyy-mm-dd',
 		autoclose: true,
+	});
+	$('#clockpicker').clockpicker({
+		placement: 'top',
+		align: 'left',
+		donetext: 'Done'
+	});
+	$("#clockpicker").on('change',function(){
+		$("#clockpicker").val($("#clockpicker").val()+":00");
 	});
 })
 </script>

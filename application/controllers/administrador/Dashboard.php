@@ -107,6 +107,25 @@ class Dashboard extends CI_Controller
 			redirect('login', 'refresh');
 		}
 	}
+	function events_past() {
+		if($this->session->userdata('is_logued_in') == true)
+		{
+
+			$datos['events_past'] = $this->newsfeed_ml->events_past();
+			$header 	= $this->header;
+			$content 	= "dashboard/modulos/menu/events/events_past";
+			$footer 	= $this->footer;
+
+			$this->load->view($header);
+			$this->load->view($content, $datos);
+			$this->load->view($footer);
+
+		}else{
+
+			$this->session->set_flashdata('login_usuario','Usted no se encuentra logeado');
+			redirect('login', 'refresh');
+		}
+	}
 	function logout()
 	{
 	   $this->session->unset_userdata('logged_in');

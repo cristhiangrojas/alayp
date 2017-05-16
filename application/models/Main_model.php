@@ -64,7 +64,16 @@ class Main_model extends CI_Model {
 		$sql = $this->db->get('forum');
 		return $sql;
 	}
-
+	function get_countries(){
+		$this->db->where('accept',1);
+		$this->db->order_by('country desc');
+		$sql =  $this->db->get('countries');
+		return $sql;
+	}
+	function get_skills(){
+		$sql =  $this->db->get('skills');
+		return $sql;
+	}
 
 }
 

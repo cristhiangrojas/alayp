@@ -14,7 +14,7 @@
 
 	<div class="box-body">
 		<div class="col-sm-12">
-			<div class="container" style="background-color: #ecf0f5;    padding: 10px;" id="insercciones">
+			<div style="background-color: #ecf0f5;    padding: 10px;" id="insercciones">
 				<div class="table-responsive">
 					<table id="example1" class="table table-bordered table-striped text-center">
 						<thead>

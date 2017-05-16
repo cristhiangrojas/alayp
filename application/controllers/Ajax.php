@@ -186,6 +186,38 @@ class Ajax extends CI_Controller {
 			}
 				
 	}
+	public function insert_background() {
+		// $data['title'] = $this->input->post('title');
+			$config['upload_path'] 		= 'uploads/events/backgrounds/';
+			$config['allowed_types'] 	= 'jpg|jpeg|png|JPG|JPEG|PNG';
+			$config['remove_spaces']	= TRUE;
+			$config['max_size']    		= '1024';
+
+			$this->load->library('upload', $config);
+			if ($this->upload->do_upload('image_background')) { 
+				$file_info = $this->upload->data();
+				$archivo = $file_info['file_name'];
+				$data = array
+					(
+						'image'			=> $archivo,
+					);
+
+				$id = $this->input->post('id_event');
+				$this->db->select('events.id', FALSE);
+				$this->db->where('events.id', $id);
+				$upd = $this->db->update('events', $data);
+				if ($upd == true) {
+					$this->db->select('events.image', $data);
+					$this->db->where('id',$id);
+					$sql = $this->db->get('events',1);
+					$this->response['data'] = $sql->result();
+					echo json_encode($this->response);
+				}else {
+					echo 0;
+				}
+			}
+				
+	}
 	/* Comentario */
 }
 

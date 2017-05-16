@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>external/plugins/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>external/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>external/plugins/datatables/dataTables.bootstrap.css">
+
+  <link rel="stylesheet" href="<?php echo base_url(); ?>external/plugins/clockpicker/bootstrap-clockpicker.min.css">
+  
   <link rel="stylesheet" href="<?php echo base_url(); ?>external/css/events.css">
   <link rel="icon" type="image/png"  href="<?php echo base_url(); ?>external/img/favicon.png">
   <script src="<?php echo base_url() ?>external/plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -139,7 +142,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo base_url() ?>administrador/dashboard/events_upcoming"><i class="fa fa-circle-o"></i> Upcoming</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Past</a></li>
+                <li><a href="<?php echo base_url() ?>administrador/dashboard/events_past"><i class="fa fa-circle-o"></i> Past</a></li>
               </ul>
             </li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Join</a></li>

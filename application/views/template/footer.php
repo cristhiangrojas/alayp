@@ -29,6 +29,7 @@
 	</footer>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>external/js/jquery.smartmenus.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>external/js/events.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>external/js/jquery.smartmenus.bootstrap.js"></script>
 </body>
 </html>

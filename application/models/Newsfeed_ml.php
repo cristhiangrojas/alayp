@@ -178,17 +178,71 @@ class Newsfeed_ml extends CI_Model {
 	}
 	function last_id_speakers() {
 		$this->db->select('speakers.sid', FALSE)
-				->order_by('speakers.sid', 'ASC')
+				->order_by('speakers.sid', 'DESC')
 				->limit(1);
 		$consulta = $this->db->get('speakers');
-		return $consulta->num_rows();
+		$resultado = $consulta->row('sid');
+		return $resultado;
 	}
 	function fecha_principal() {
 		$date = date('Y-m-d');
-		$this->db->select('events.date', FALSE)
+		$time = date('H:i:s');
+		$this->db->select('events.*', FALSE)
 				->where('date >=',$date)
 				->order_by('events.id', 'ASC')
 				->limit(1);
+		$consulta = $this->db->get('events');
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+			{
+				$data[] = $fila;
+			}
+				return $data;
+		}
+	}
+	function eventos_proximos() {
+		$date = date('Y-m-d');
+		$this->db->select('events.*', FALSE)
+				->where('date >=',$date)
+				->order_by('events.id', 'ASC');
+		$consulta = $this->db->get('events');
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+			{
+				$data[] = $fila;
+			}
+				return $data;
+		}
+	}
+	public function conferencistas($id_conferencist) {
+		$this->db->select('speakers.*', FALSE)
+				->where('sid',$id_conferencist)
+				->order_by('speakers.id', 'ASC');
+		$consulta = $this->db->get('speakers');
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+			{
+				$data[] = $fila;
+			}
+				return $data;
+		}
+	}
+
+	public function total_conferencistas($id_conferencist) {
+		$this->db->select('speakers.*', FALSE)
+				->where('sid',$id_conferencist)
+				->order_by('speakers.id', 'ASC');
+		$consulta = $this->db->get('speakers');
+		return $consulta->num_rows();
+	}
+	public function events_past() {
+		$date = date('Y-m-d');
+		$this->db->select('events.*', FALSE)
+				->where('date <',$date)
+				->order_by('events.id', 'ASC');
 		$consulta = $this->db->get('events');
 		if($consulta->num_rows()>0)
 		{

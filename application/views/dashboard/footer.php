@@ -43,6 +43,8 @@
 <script src="<?php echo base_url(); ?>external/plugins/datatables/dataTables.bootstrap.min.js"></script>
 
 <script src="<?php echo base_url(); ?>external/js/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>external/plugins/clockpicker/bootstrap-clockpicker.min.js"></script>
+<script src="<?php echo base_url(); ?>external/plugins/clockpicker/highlight.min.js"></script>
 
 <script src="<?php echo base_url(); ?>external/plugins/daterangepicker/daterangepicker.js"></script>
 <script src="<?php echo base_url(); ?>external/plugins/datepicker/bootstrap-datepicker.js"></script>

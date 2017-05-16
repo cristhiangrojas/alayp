@@ -41,9 +41,6 @@ a {
   background-color: #55b3e5;
   border-color: #55b3e5; }
 
-.input-group-addon {
-  border-radius: 10px 10px 10px 0px;
-  background-color: #7f8184; }
 
 .btn-group-lg > .btn, .btn-lg {
   padding: .40rem 2rem;
@@ -926,6 +923,36 @@ a {
         border-radius: 10px;
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
         background-color: #ADADAD; }
+.title {
+  color: #B4CFDA;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: -2em;
+}
+.date_event {
+  color: #B4CFDA;
+  font-size: 6.5em;
+  font-weight: bold;
+}
+
+.title_event {
+  color: #B4CFDA;
+  font-size: 3.5em;
+  font-weight: bold;
+  margin-top: -15px;
+  margin-left: -5px;
+  width: 115%;
+}
+.event_location {
+  color: #B4CFDA;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 5em;
+}
+.margin_div {
+  margin-top: -19em;
+  margin-left: 38em;
+}
 
 /*Fin Estilos footer*/
 

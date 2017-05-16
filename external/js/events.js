@@ -39,6 +39,31 @@ function validateFormEvents() {
 			editar_speaker();
 		}
 	})
+
+	$("#image_background").submit(function(e) {
+		e.preventDefault();
+		var formData = new FormData($("#image_background")[0]);
+		$.ajax({
+			url: base_url+"ajax/insert_background",
+			type: "POST",
+			dataType: "json",
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false,
+			beforeSend: function() {
+				$("#guardando").css("display","");
+			},
+			success: function(a) {
+				$("#guardando").css("display","none");
+				$("#imagen").html('<img src="'+base_url+'uploads/events/backgrounds/'+a.data[0].image+'" width="100%">');
+			},
+			error: function(xhr,status,error) {
+			console.log(xhr.responseText);
+			}
+		});
+	})
+
 }
 function insert_event() {
 	var datos = $( "#formulario" ).serialize();
@@ -49,7 +74,6 @@ function insert_event() {
 		data: datos,
 		success: function (a) {
 			$('#formulario')[0].reset();
-			console.log(a);
 			if (a.data[0].featured_event == 0) {
 				featured_event = 'No';
 			}else {
@@ -66,6 +90,8 @@ function insert_event() {
 					+'<td>'+a.data[0].title+'</td>'
 					+'<td>'+a.data[0].description+'</td>'
 					+'<td>'+a.data[0].date+'</td>'
+					+'<td>'+a.data[0].time+'</td>'
+					+'<td>'+a.data[0].location+'</td>'
 					+'<td>'+a.data[0].conferencist+'</td>'
 					+'<td><a href="'+a.data[0].registry_link+'" target="_blank">Registry Link</a></td>'
 					+'<td><a href="'+a.data[0].registration_processes+'" target="_blank">Registry Link</a></td>'
@@ -75,6 +101,8 @@ function insert_event() {
 					+'<td>'+a.data[0].cost+'</td>'
 					+'</tr>'
 				);
+				$("#add_button").css('display','none');
+				$("#add_button").html('');
 			}
 		},
 		error: function(xhr,status,error) {
@@ -116,7 +144,6 @@ function agregar_speaker () {
 				+'&nbsp'
 			);
 			$("#add_button").css("display","");
-			console.log(a)
 		},
 		error: function(xhr,status,error) {
 			console.log(xhr.responseText);
@@ -124,13 +151,18 @@ function agregar_speaker () {
 	})
 }
 function countdown(id){
-    var fecha=new Date('2017','05');
+    var fecha = Date.parse(id);
+    fecha = new Date(fecha);
     var hoy=new Date();
     var dias=0;
     var horas=0;
     var minutos=0;
     var segundos=0;
-
+	if (dias == 0) {
+		diasmos = "";
+	}else {
+		diasmos = dias + " Days ";
+	}
     if (fecha>hoy){
         var diferencia=(fecha.getTime()-hoy.getTime())/1000
         dias=Math.floor(diferencia/86400)
@@ -140,14 +172,18 @@ function countdown(id){
         minutos=Math.floor(diferencia/60)
         diferencia=diferencia-(60*minutos)
         segundos=Math.floor(diferencia)
-
-        $("#contador").html('Quedan ' + dias + ' D&iacute;as, ' + horas + ' Horas, ' + minutos + ' Minutos, ' + segundos + ' Segundos');
+        if (dias == 0) {
+        	diasmos = "";
+        }else {
+        	diasmos = dias + " Days ";
+        }
+        $("#contador").html(diasmos + horas + ' Hours, ' + minutos + ' Minutes, ' + segundos + ' Seconds');
 
         if (dias>0 || horas>0 || minutos>0 || segundos>0){
             setTimeout("countdown(\"" + id + "\")",1000)
         }
     }
     else{
-        $("#contador").html('Quedan ' + dias + ' D&iacute;as, ' + horas + ' Horas, ' + minutos + ' Minutos, ' + segundos + ' Segundos');
+        $("#contador").html(diasmos + horas + ' Hours, ' + minutos + ' Minutes, ' + segundos + ' Seconds');
     }
 }

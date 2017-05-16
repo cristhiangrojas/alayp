@@ -9,9 +9,57 @@
 					<div class="col-md-6 col-lg-6 col-xl-6"> 
 						<img src="<?php echo base_url() ?>external/img/icon4.jpg" alt="" class="img-responsive" style="margin: 0 auto;padding: 2em 0;">
 					</div>
-					<div class="col-md-6 col-lg-6 col-xl-6"> 
+					<div class="col-md-6 col-lg-6 col-xl-6 margin_div"> 
+						<?php
+						if ($fecha_principal > 0) {
+						foreach ($fecha_principal as $row) {
+							$fecha_final = $row->date;
+							$hora_final = $row->time;
+							$fecha_final = $fecha_final." ".$hora_final;
+							$titulo = $row->title;
+							$lugar = $row->location;
+						}
+						$explode = explode(" ",$fecha_final);
+						$fecha = explode("-",$explode[0]);
+						?>
+						<div class="col-md-4">
+							<center>
+								<h3 class="title">DAY</h3>
+								<h1 class="date_event"><?php echo $fecha[2] ?></h1>
+							</center>
+						</div>
+						<div class="col-md-4">
+							<center>
+								<h3 class="title">MONTH</h3>
+								<h1 class="date_event"><?php echo $fecha[1] ?></h1>
+							</center>
+						</div>
+						<div class="col-md-4">
+							<center>
+								<h3 class="title">YEAR</h3>
+								<h1 class="date_event"><?php echo $fecha[0] ?></h1>
+							</center>
+						</div>
+						<div class="col-md-12">
+							<center>
+								<h1 class="title_event"><?php echo strtoupper($titulo); ?></h1>
+							</center>
+						</div>
+						<div class="col-md-12">
+							<center>
+								<span class="event_location"><?php echo strtoupper($lugar)." AT "; ?><span id='contador'></span></span>
+							</center>
+						</div>
+						
+						<script>
+							var fecha_final = '<?php echo $fecha_final; ?>';
+							$(function() {
+								countdown(fecha_final)
+							})
+						</script>
+						<?php }else { ?>
 						<img src="<?php echo base_url() ?>external/img/icon5.jpg" alt="" class="img-responsive" style="margin: 0 auto;padding: 2em 0;">
-						<!-- <div id='contador'></div> -->
+						<?php } ?>
 					</div>
 				</div>
 			</div>
@@ -65,23 +113,3 @@
 			</div>
 		</div>
 	</section>
-	<script>
-	<?php
-		foreach ($fecha_principal as $row) {
-			$fecha_final = $row->date;
-		}
-	?>
-		$(function(){
-			$.ajax({
-				type: 'POST',
-				url: base_url+'home/traer_fecha',
-				data: '',
-				success: function(a) {
-					console.log(a)
-				},
-				error: function() {
-					console.log("nada");
-				}
-			});
-		})
-	</script>

@@ -57,6 +57,7 @@ class Home extends CI_Controller
 
 	public function upcoming(){
 		$data['content'] 	= $this->content_upcoming;
+		$data['eventos_proximos'] = $this->newsfeed_ml->eventos_proximos();
 		$this->load->view('template/index',$data);
 	}
 
