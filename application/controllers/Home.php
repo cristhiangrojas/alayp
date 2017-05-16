@@ -22,9 +22,9 @@ class Home extends CI_Controller
 
 	public function index(){
 		$data['content'] 	= $this->content;
+		$data['fecha_principal'] = $this->newsfeed_ml->fecha_principal();
 		$this->load->view('template/index',$data);
 	}
-
 	public function about(){
 		$data['content'] 	= $this->content_about;
 		$this->load->view('template/index',$data);
@@ -73,4 +73,7 @@ class Home extends CI_Controller
 		$data['content'] 	= 'user';
 		$this->load->view('template/index',$data);
 	}	
+	public function traer_fecha(){
+		$this->newsfeed_ml->fecha_principal();
+	}
 }

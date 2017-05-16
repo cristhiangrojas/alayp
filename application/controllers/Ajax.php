@@ -81,12 +81,12 @@ class Ajax extends CI_Controller {
 		$this->response['data'] = $sql->result();
 		echo json_encode($this->response);		
 	}
-	function editar_skill() {
+	public function editar_skill() {
 
 		$data['title'] = $this->input->post('title');
 		$data['id'] = $this->input->post('id');
 		$this->db->select('skills.*', FALSE);
-        $this->db->where('skills.id', $data['id']);
+		$this->db->where('skills.id', $data['id']);
 		$upd = $this->db->update('skills', $data);
 		if ($upd == true) {
 			$this->db->select('skills.*', FALSE)
@@ -96,13 +96,95 @@ class Ajax extends CI_Controller {
 			echo json_encode($this->response);
 		}	
 	}
-	function eliminar_skill() {
+	public function eliminar_skill() {
 		$data['id'] = $this->input->post('id');
 		$delete = $this->db->delete('skills', $data);
 		if ($delete == true) {
 			$this->response['data'] = $data;
 			echo json_encode($this->response);
 		}	
+	}
+	public function agregar_interest() {
+		$data['title'] = $this->input->post('title');
+		$this->db->insert('interest', $data);
+		$this->db->order_by('id','desc');
+		$sql = $this->db->get('interest',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);		
+	}
+	public function editar_interest() {
+
+		$data['title'] = $this->input->post('title');
+		$data['id'] = $this->input->post('id');
+		$this->db->select('interest.*', FALSE);
+		$this->db->where('interest.id', $data['id']);
+		$upd = $this->db->update('interest', $data);
+		if ($upd == true) {
+			$this->db->select('interest.*', FALSE)
+					->where('id',$data['id']);
+			$sql = $this->db->get('interest',1);
+			$this->response['data'] = $sql->result();
+			echo json_encode($this->response);
+		}	
+	}
+	public function eliminar_interest() {
+		$data['id'] = $this->input->post('id');
+		$delete = $this->db->delete('interest', $data);
+		if ($delete == true) {
+			$this->response['data'] = $data;
+			echo json_encode($this->response);
+		}	
+	}
+	public function editar_pais() {
+		$data['id'] = $this->input->post('id');
+		$data['accept'] = $this->input->post('accept');
+		$this->db->select('countries.*', FALSE);
+		$this->db->where('countries.id', $data['id']);
+		$upd = $this->db->update('countries', $data);
+		if ($upd == true) {
+			$this->db->select('countries.*', FALSE)
+					->where('id',$data['id']);
+			$sql = $this->db->get('countries',1);
+			$this->response['data'] = $sql->result();
+			echo json_encode($this->response);
+		}	
+	}
+	public function insert_event() {
+		// $data['title'] = $this->input->post('title');
+		$data= $_POST;
+		$this->db->insert('events', $data);
+		$this->db->order_by('id','desc');
+		$sql = $this->db->get('events',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);		
+	}
+
+	public function insert_speaker() {
+		// $data['title'] = $this->input->post('title');
+			$config['upload_path'] 		= 'uploads/events/speakers/';
+			$config['allowed_types'] 	= 'jpg|jpeg|png|JPG|JPEG|PNG';
+			$config['remove_spaces']	= TRUE;
+			$config['max_size']    		= '1024';
+
+			$this->load->library('upload', $config);
+			if ($this->upload->do_upload('photo')) { 
+				$file_info = $this->upload->data();
+				$archivo = $file_info['file_name'];
+				$data = array
+					(
+						'sid'			=> $this->input->post('sid'),
+						'photo'			=> $archivo,
+						'name'			=> $this->input->post('name'),
+						'profession'	=> $this->input->post('profession'),
+						'description'	=> $this->input->post('description')
+					);
+				$this->db->insert('speakers', $data);
+				$this->db->order_by('id','desc');
+				$sql = $this->db->get('speakers',1);
+				$this->response['data'] = $sql->result();
+				echo json_encode($this->response);
+			}
+				
 	}
 	/* Comentario */
 }

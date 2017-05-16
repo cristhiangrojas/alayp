@@ -17,9 +17,11 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>external/plugins/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>external/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>external/plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>external/css/events.css">
   <link rel="icon" type="image/png"  href="<?php echo base_url(); ?>external/img/favicon.png">
   <script src="<?php echo base_url() ?>external/plugins/jQuery/jquery-2.2.3.min.js"></script>
   <script src="<?php echo base_url() ?>external/js/skills.js"></script>
+  <script src="<?php echo base_url() ?>external/js/events.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -136,7 +138,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Upcoming</a></li>
+                <li><a href="<?php echo base_url() ?>administrador/dashboard/events_upcoming"><i class="fa fa-circle-o"></i> Upcoming</a></li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> Past</a></li>
               </ul>
             </li>
@@ -250,6 +252,7 @@
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url() ?>administrador/dashboard/skills"><i class="fa fa-circle-o"></i> Skills</a></li>
             <li><a href="<?php echo base_url() ?>administrador/dashboard/interest"><i class="fa fa-circle-o"></i> Interest</a></li>
+            <li><a href="<?php echo base_url() ?>administrador/dashboard/countries"><i class="fa fa-circle-o"></i> Countries</a></li>
           </ul>
         </li>
         <li><a href="<?php echo base_url() ?>administrador/dashboard"><i class="fa fa-tv"></i> <span>Sitio Web</span></a></li>

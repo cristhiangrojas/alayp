@@ -11,6 +11,7 @@
 					</div>
 					<div class="col-md-6 col-lg-6 col-xl-6"> 
 						<img src="<?php echo base_url() ?>external/img/icon5.jpg" alt="" class="img-responsive" style="margin: 0 auto;padding: 2em 0;">
+						<!-- <div id='contador'></div> -->
 					</div>
 				</div>
 			</div>
@@ -64,3 +65,23 @@
 			</div>
 		</div>
 	</section>
+	<script>
+	<?php
+		foreach ($fecha_principal as $row) {
+			$fecha_final = $row->date;
+		}
+	?>
+		$(function(){
+			$.ajax({
+				type: 'POST',
+				url: base_url+'home/traer_fecha',
+				data: '',
+				success: function(a) {
+					console.log(a)
+				},
+				error: function() {
+					console.log("nada");
+				}
+			});
+		})
+	</script>

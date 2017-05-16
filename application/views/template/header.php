@@ -10,6 +10,7 @@
 	<link href="<?php echo base_url() ?>external/css/estilos_general.css?<? echo strtotime(date('Y-m-d H:i:s')); ?>" rel="stylesheet">
 	<link href="<?php echo base_url() ?>external/css/connect.css?<? echo strtotime(date('Y-m-d H:i:s')); ?>" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="<?php echo base_url() ?>external/js/events.js"></script>
 </head>
 <body>
 	<script type="text/javascript">var base_url = '<? echo base_url(); ?>';</script>
