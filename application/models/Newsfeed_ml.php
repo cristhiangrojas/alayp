@@ -189,14 +189,22 @@ class Newsfeed_ml extends CI_Model {
 		$time = date('H:i:s');
 		$this->db->select('events.*', FALSE)
 				->where('date >=',$date)
-				->order_by('events.id', 'ASC')
+				->order_by('events.date', 'desc')
 				->limit(1);
 		$consulta = $this->db->get('events');
 		if($consulta->num_rows()>0)
 		{
 			foreach($consulta->result() as $fila)
 			{
-				$data[] = $fila;
+				if ($fila->date == $date) {
+					if ($fila->time > $time) {
+						$data[] = $fila;
+					}else {
+						$data = "";
+					}
+				}else {
+					$data[] = $fila;
+				}
 			}
 				return $data;
 		}
@@ -240,15 +248,95 @@ class Newsfeed_ml extends CI_Model {
 	}
 	public function events_past() {
 		$date = date('Y-m-d');
+		$time = date('H:i:s');
 		$this->db->select('events.*', FALSE)
-				->where('date <',$date)
+				->where('date <=',$date)
 				->order_by('events.id', 'ASC');
 		$consulta = $this->db->get('events');
 		if($consulta->num_rows()>0)
 		{
 			foreach($consulta->result() as $fila)
 			{
-				$data[] = $fila;
+				if ($fila->date == $date) {
+					if ($fila->time < $time) {
+						$data[] = $fila;
+					}else {
+						$data = "";
+					}
+				}else {
+					$data[] = $fila;
+				}
+			}
+				return $data;
+		}
+	}
+	public function evento_principal() {
+		$date = date('Y-m-d');
+		$this->db->select('events.*', FALSE)
+				->where('date >=',$date)
+				->where('featured_event = 1')
+				->order_by('events.id', 'ASC')
+				->limit(1);
+		$consulta = $this->db->get('events');
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+			{
+
+					$data[] = $fila;
+			}
+				return $data;
+		}
+	}
+	public function eventos_principales() {
+		$date = date('Y-m-d');
+		$this->db->select('events.*', FALSE)
+				->where('date >=',$date)
+				->where('featured_event = 1')
+				->order_by('events.id', 'ASC');
+		$consulta = $this->db->get('events');
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+			{
+
+					$data[] = $fila;
+			}
+				return $data;
+		}
+	}
+	public function evento_secundario() {
+		$date = date('Y-m-d');
+		$this->db->select('events.*', FALSE)
+				->where('date >=',$date)
+				->where('featured_event != 1')
+				->order_by('events.id', 'ASC')
+				->limit(3);
+		$consulta = $this->db->get('events');
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+			{
+
+					$data[] = $fila;
+			}
+				return $data;
+		}
+	}
+	public function eventos_secundarios($ignore) {
+		$date = date('Y-m-d');
+		$this->db->select('events.*', FALSE)
+				->where('date >=',$date)
+				->where('featured_event != 1')
+				->where_not_in('events.id', $ignore)
+				->order_by('events.id', 'ASC');
+		$consulta = $this->db->get('events');
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+			{
+
+					$data[] = $fila;
 			}
 				return $data;
 		}

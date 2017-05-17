@@ -52,6 +52,7 @@ class Home extends CI_Controller
 
 	public function events(){
 		$data['content'] 	= $this->content_events;
+		$data['proximos'] = $this->newsfeed_ml->eventos_proximos();
 		$this->load->view('template/index',$data);
 	}
 
@@ -63,11 +64,14 @@ class Home extends CI_Controller
 
 	public function past(){
 		$data['content'] 	= $this->content_past;
+		$data['events_past'] = $this->newsfeed_ml->events_past();
 		$this->load->view('template/index',$data);
 	}
 
 	public function join(){
 		$data['content'] 	= 'join';
+		$data['country'] = $this->main_model->get_countries();
+		$data['interests'] = $this->main_model->get_interests();
 		$this->load->view('template/index',$data);
 	}
 	public function user(){

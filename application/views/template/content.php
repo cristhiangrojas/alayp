@@ -58,7 +58,12 @@
 							})
 						</script>
 						<?php }else { ?>
-						<img src="<?php echo base_url() ?>external/img/icon5.jpg" alt="" class="img-responsive" style="margin: 0 auto;padding: 2em 0;">
+						<!-- <img src="<?php echo base_url() ?>external/img/icon5.jpg" alt="" class="img-responsive" style="margin: 0 auto;padding: 2em 0;"> -->
+						<div class="col-md-12" style="margin: 7em;">
+							<center>
+								<h1 class="title_event">NO UPCOMING EVENTS</h1>
+							</center>
+						</div>
 						<?php } ?>
 					</div>
 				</div>

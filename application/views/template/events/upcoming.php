@@ -30,7 +30,7 @@
 							<div class="row text-center team">
 							<?php foreach ($conferencistas as $key) {?>
 								<div class="col-lg-<?php echo $rows;?>">
-									<img class="img-circle" src="<?php echo base_url() ?>uploads/events/speakers/<?php echo $key->photo;?>" alt="">
+									<img class="img-circle" src="<?php echo base_url() ?>uploads/events/speakers/<?php echo $key->photo;?>" alt="" width="50%">
 									<h6><?php echo $key->name;?></h6>
 									<strong><?php echo $key->profession;?></strong>
 									<p><?php echo $key->description;?></p>

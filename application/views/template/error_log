@@ -1,0 +1,10 @@
+[10-May-2017 19:45:42 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/thbros311/public_html/admin/application/views/template/connect_user.php on line 9
+[10-May-2017 19:51:40 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/thbros311/public_html/admin/application/views/template/connect_user.php on line 9
+[10-May-2017 19:51:50 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/thbros311/public_html/admin/application/views/template/connect_user.php on line 9
+[10-May-2017 19:51:52 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/thbros311/public_html/admin/application/views/template/connect_user.php on line 9
+[10-May-2017 19:51:54 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/thbros311/public_html/admin/application/views/template/connect_user.php on line 9
+[10-May-2017 19:52:34 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/thbros311/public_html/admin/application/views/template/connect_user.php on line 9
+[10-May-2017 19:53:28 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/thbros311/public_html/admin/application/views/template/connect_user.php on line 9
+[10-May-2017 19:53:33 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/thbros311/public_html/admin/application/views/template/connect_user.php on line 9
+[10-May-2017 19:53:34 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/thbros311/public_html/admin/application/views/template/connect_user.php on line 9
+[10-May-2017 19:53:36 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/thbros311/public_html/admin/application/views/template/connect_user.php on line 9

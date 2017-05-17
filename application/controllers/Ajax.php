@@ -150,13 +150,21 @@ class Ajax extends CI_Controller {
 		}	
 	}
 	public function insert_event() {
-		// $data['title'] = $this->input->post('title');
 		$data= $_POST;
-		$this->db->insert('events', $data);
-		$this->db->order_by('id','desc');
-		$sql = $this->db->get('events',1);
-		$this->response['data'] = $sql->result();
-		echo json_encode($this->response);		
+		$config['upload_path'] 		= 'uploads/events/backgrounds/';
+		$config['allowed_types'] 	= 'jpg|jpeg|png|JPG|JPEG|PNG';
+		$config['remove_spaces']	= TRUE;
+		$config['max_size']    		= '1024';
+		$this->load->library('upload', $config);
+		if ($this->upload->do_upload('image_background')) { 
+			$file_info = $this->upload->data();
+			$data['image'] = $file_info['file_name'];
+			$this->db->insert('events', $data);
+			$this->db->order_by('id','desc');
+			$sql = $this->db->get('events',1);
+			$this->response['data'] = $sql->result();
+			echo json_encode($this->response);
+		}		
 	}
 
 	public function insert_speaker() {
@@ -186,37 +194,90 @@ class Ajax extends CI_Controller {
 			}
 				
 	}
-	public function insert_background() {
-		// $data['title'] = $this->input->post('title');
-			$config['upload_path'] 		= 'uploads/events/backgrounds/';
+	public function info_speaker(){
+		$id = $this->input->post('id_speaker');
+		$this->db->select('speakers.*');
+		$this->db->where('id',$id);
+		$sql = $this->db->get('speakers',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);
+	}
+	public function actualizar_speaker(){
+		$id_speaker = $this->input->post('id_speaker');
+		if ($_FILES['photo']['name'] != "") {
+
+			$config['upload_path'] 		= 'uploads/events/speakers/';
 			$config['allowed_types'] 	= 'jpg|jpeg|png|JPG|JPEG|PNG';
 			$config['remove_spaces']	= TRUE;
 			$config['max_size']    		= '1024';
-
 			$this->load->library('upload', $config);
-			if ($this->upload->do_upload('image_background')) { 
+
+			if ($this->upload->do_upload('photo')) { 
 				$file_info = $this->upload->data();
 				$archivo = $file_info['file_name'];
-				$data = array
+				$data = array 
 					(
-						'image'			=> $archivo,
+						'photo' => $archivo,
+						'name' => $this->input->post('name'),
+						'profession' => $this->input->post('profession'),
+						'description' => $this->input->post('description'),
+						'sid' => $this->input->post('sid'),
 					);
-
-				$id = $this->input->post('id_event');
-				$this->db->select('events.id', FALSE);
-				$this->db->where('events.id', $id);
-				$upd = $this->db->update('events', $data);
-				if ($upd == true) {
-					$this->db->select('events.image', $data);
-					$this->db->where('id',$id);
-					$sql = $this->db->get('events',1);
-					$this->response['data'] = $sql->result();
-					echo json_encode($this->response);
-				}else {
-					echo 0;
-				}
 			}
-				
+		}else {
+			$data = array 
+				(
+					'name' => $this->input->post('name'),
+					'profession' => $this->input->post('profession'),
+					'description' => $this->input->post('description'),
+					'sid' => $this->input->post('sid'),
+				);
+		}
+
+
+		$this->db->select('speakers.id', FALSE);
+		$this->db->where('speakers.id', $id_speaker);
+		$upd = $this->db->update('speakers', $data);
+		if ($upd == true) {
+			$this->db->select('speakers.*', $data);
+			$this->db->where('id',$id_speaker);
+			$sql = $this->db->get('speakers',1);
+			$this->response['data'] = $sql->result();
+			echo json_encode($this->response);
+		}else {
+			echo 0;
+		}
+	}
+	public function delete_speaker() {
+		$data['id'] = $this->input->post('id');
+		$image_delete = $this->input->post('image_delete');
+		$delete = $this->db->delete('speakers', $data);
+		unlink('uploads/events/speakers/'.$image_delete);
+		if ($delete == true) {
+			$this->response['data'] = $data;
+			echo $data['id'];
+		}	
+	}
+	public function update_event() {
+		$data = $_POST;
+		$this->db->select('events.*', FALSE);
+		$this->db->where('events.id', $data['id']);
+		$upd = $this->db->update('events', $data);
+		if ($upd == true) {
+			$this->db->select('events.*', FALSE)
+					->where('id',$data['id']);
+			$sql = $this->db->get('events',1);
+			$this->response['data'] = $sql->result();
+			echo json_encode($this->response);
+		}	
+	}
+	public function check_description() {
+		$id = $this->input->post('id');
+		$this->db->select('events.description');
+		$this->db->where('events.id', $id);
+		$sql = $this->db->get('events',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);
 	}
 	/* Comentario */
 }
