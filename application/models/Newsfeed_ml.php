@@ -189,7 +189,7 @@ class Newsfeed_ml extends CI_Model {
 		$time = date('H:i:s');
 		$this->db->select('events.*', FALSE)
 				->where('date >=',$date)
-				->order_by('events.date', 'desc')
+				->order_by('events.date', 'ASC')
 				->limit(1);
 		$consulta = $this->db->get('events');
 		if($consulta->num_rows()>0)

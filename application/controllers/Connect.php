@@ -5,6 +5,7 @@ class Connect extends CI_Controller
 {
 	function __construct(){
 		parent::__construct(); 
+		if(!is_logued()){redirect('login','refresh');}
 	}
 
 	public function index(){
@@ -25,6 +26,8 @@ class Connect extends CI_Controller
 			$id_user = $_SESSION['id_usuario'];
 		}
 		$data['user'] = $this->main_model->get_user($id_user)->result()[0];
+		$data['info'] = $this->main_model->get_user_info($id_user);
+		$data['interests'] = $this->main_model->get_interests_user_profile($id_user);
 		$this->load->view('template/index',$data);
 	}
 	public function connect_modal(){

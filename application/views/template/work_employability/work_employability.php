@@ -9,8 +9,11 @@
 					<div class="col-md-3 col-lg-3 col-xl-3">
 						<div class="fondo_sponsors">
 							<h6>Sponsors</h6>
-							<img src="<?php echo base_url() ?>external/img/sponsors.jpg" alt="" class="img-responsive" style="width: 100%;">
-							<img src="<?php echo base_url() ?>external/img/sponsors1.jpg" alt="" class="img-responsive" style="width: 100%;">
+							<?php if ($listado_panel_centro_sponsors > 0) {
+								foreach ($listado_panel_centro_sponsors as $row) {?>
+									<img src="<?php echo base_url() ?>uploads/work_employability/sponsors/<?php echo $row->imagen;?>" alt="" class="img-responsive" style="width: 100%;">
+								<?php }
+							} ?>
 						</div>
 					</div><br />
 				</div>
@@ -35,11 +38,30 @@
 						</div><br />
 
 						<div class="fondo_work_employability">
-							<div class="fondo_redondo">
-								<!--<h1>Marketing Coordinator</h1>
-								<p>consectetur adipiscing elit. Nam id elit consequat felis sagittis pulvinar sit amet at diam. Donec sodales nec augue eu gravida. Integer bibendum enim Vestibulum sapien ex.</p>
-								<strong>Brisbane</strong>!-->
-							</div>
+						<?php if ($list_jobs > 0) {
+							foreach ($list_jobs as $row) {?>
+								<div class="row persona">
+									<div class="col-sm-9 contenido">
+										<div class="col-xs-6 col-sm-9" style="border-right: ridge;">
+											<h3 class="profesion"><?php echo $row->title; ?></h3>
+											<p><?php echo $row->description ?></p>
+										</div>
+										<div class=" col-sm-3" style=" margin-top: 13px;">
+											<center>
+												<h3 class="bold"><?php echo $row->city ?></h3>
+												<p><?php echo $row->country ?></p>
+											</center>
+										</div>
+									</div>
+									<div class="col-sm-3 apply" >
+										<button type="button" class="btn btn-default btn-lg" style=" border-radius: 10px !important;"><span class="profesion">Apply</span></button>
+									</div>
+								</div>
+								<hr class="hr">
+
+							<?php }
+						} ?>
+
 						</div>
 					</div>
 				</div><br />

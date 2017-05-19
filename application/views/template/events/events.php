@@ -154,20 +154,8 @@ if ($evento_secundario > 0) {$ids = array();?>
 	</div>
 <?php } ?>
 <div id="mas_eventos2" style="display: none;">
-<?php 
-
+<?php
 $eventos_secundarios = $this->newsfeed_ml->eventos_secundarios($ids);
-// for ($i=0; $i <= count($eventos_secundarios) ; $i++) { 
-// 	if (fmod($i, 3) == 0) {
-// 		?>
- 		<!-- 	<div class="text-center team">
- 			</div>
- --> 		
-
- <?php
-// 	}
-// }
-
 if ($eventos_secundarios > 0) {?>
 
  <?php $ids_sec = $ids;for ($a=0; $a < count($eventos_secundarios) ; $a++) {
@@ -197,36 +185,5 @@ if (count($ids_sec) > 0) {
 <?php } ?> 
 <?php } ?>
 </div>
-<!-- 		<div class="section_4">
-			<div class="container">
-				<div class="row">
-					<div class="text-center team">
-						<div class="col-lg-4 col-xl-4">
-							<img class="img-responsive" src="<?php echo base_url() ?>external/img/events_1.jpg" alt="" style="width: 100%;">
-							<div class="texto">
-								<p>LAUNCH EVENT</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-xl-4">
-							<img class="img-responsive" src="<?php echo base_url() ?>external/img/events_2.jpg" alt="" style="width: 100%;">
-							<div class="texto">
-								<p>2014 XMAS PARTY</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-xl-4">
-							<img class="img-responsive" src="<?php echo base_url() ?>external/img/events_3.jpg" alt="" style="width: 100%;">
-							<div class="texto">
-								<p>BNE POLO HOUSE</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="bottom">
-					<button type="button" class="btn btn-primary btn-lg">Find Out More</button>
-				</div>
-			</div>
-		</div> -->
-
 		
 	</section>

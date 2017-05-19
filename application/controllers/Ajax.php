@@ -279,6 +279,52 @@ class Ajax extends CI_Controller {
 		$this->response['data'] = $sql->result();
 		echo json_encode($this->response);
 	}
+	public function delete_event() {
+		$data['id'] = $this->input->post('id');
+		$this->db->select('events.image');
+		$this->db->where('events.id', $data['id']);
+		$sql = $this->db->get('events',1);
+		$imagen = $sql->result();
+		foreach ($imagen as $row ) {
+			$delete = $row->image;
+		}
+		unlink('uploads/events/backgrounds/'.$delete);
+		$delete = $this->db->delete('events', $data);
+		if ($delete == true) {
+			$this->response['data'] = $data;
+			echo json_encode($this->response);
+		}	
+	}
+	public function images_work() {
+			$config['upload_path'] 		= 'uploads/work_employability/image_works/';
+			$config['allowed_types'] 	= 'jpg|jpeg|png|JPG|JPEG|PNG';
+			$config['remove_spaces']	= TRUE;
+			$config['max_size']    		= '1024';
+
+			$this->load->library('upload', $config);
+			if ($this->upload->do_upload('images')) { 
+				$file_info = $this->upload->data();
+				$archivo = $file_info['file_name'];
+				$data = array
+					(
+						'sid'		=> $this->input->post('sid'),
+						'name'		=> $archivo,
+					);
+				$this->db->insert('images_work', $data);
+				$sql = $this->db->get('images_work',1);
+				$this->response['data'] = $sql->result();
+				echo json_encode($this->response);	
+			}
+	}
+	public function agregar_trabajo() {
+		$data = $_POST;
+		$data['skills'] = json_encode($this->input->post('skills'));
+		$this->db->insert('works', $data);
+		$this->db->order_by('id','desc');
+		$sql = $this->db->get('works',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);
+	}
 	/* Comentario */
 }
 

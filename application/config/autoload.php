@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('login_ml','newsfeed_ml','migration_visas_ml','starting_business_ml','civic_life_ml','study_ml','traveling_ml','main_model');
+$autoload['model'] = array('login_ml','newsfeed_ml','migration_visas_ml','starting_business_ml','civic_life_ml','study_ml','traveling_ml','main_model','work_employability_ml');

@@ -10,6 +10,9 @@ div#mdialTamanio {
   position: relative;
   width: 100%; }
 
+#form_signup .select2-container {
+  width: 100% !important; }
+
 .foto_perfil {
   background-color: #fff;
   width: 19%;
@@ -21,7 +24,7 @@ div#mdialTamanio {
   background-position: 50%;
   border-radius: 50%;
   background-size: 100% auto;
-  z-index: 10000;
+  z-index: 100;
   border: black 3px solid; }
 
 .hr {
@@ -131,6 +134,9 @@ div#mdialTamanio {
 .alejar {
   margin-left: 2.7%; }
 
+.grid_user {
+  position: relative; }
+
 .texto {
   overflow: auto;
   height: 150px; }
@@ -138,11 +144,11 @@ div#mdialTamanio {
 .background_perfil {
   background-color: #fff;
   opacity: 0.7;
-  width: 97.1%;
-  height: 13%;
+  width: 100%;
+  height: 60px;
   position: absolute;
-  top: 87%;
-  z-index: 1000; }
+  bottom: 0;
+  z-index: 10; }
 
 .btn_grupo {
   line-height: 2; }
@@ -157,13 +163,19 @@ div#mdialTamanio {
   background-color: #F5F5F5; }
 
 .icono1 {
-  right: 3%;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
   position: absolute;
   color: #55B3E5;
   font-size: 4em; }
+  .icono1.edit:hover {
+    color: #1872a2; }
 
 .icono2 {
   left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
   position: absolute;
   color: #55B3E5;
   font-size: 4em; }
@@ -270,7 +282,9 @@ div#mdialTamanio {
   background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
   background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
   color: #817A7A; }
-
+  .apply {
+   margin-top: 4% !important; 
+  }
 .keyword {
   position: absolute;
   z-index: 1000;
@@ -396,15 +410,6 @@ div#mdialTamanio {
     height: 170px;
     top: -10px; }
 
-  .background_perfil {
-    background-color: #fff;
-    opacity: 0.7;
-    width: 95.5%;
-    height: 13%;
-    position: absolute;
-    top: 87%;
-    z-index: 1000; }
-
   .icono1 {
     right: 3%;
     position: absolute;
@@ -435,7 +440,9 @@ div#mdialTamanio {
 
   .centrado {
     margin-top: 10%; }
-
+  .apply {
+   margin-top: 7% !important; 
+  }
   .nombre {
     color: #000;
     font-size: 15px; }

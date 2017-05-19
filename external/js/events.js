@@ -62,7 +62,19 @@ function validateFormEvents() {
 				}
 			})
 		}else {
-			alert('funcion');
+			$.ajax({
+				url: base_url+"ajax/delete_event",
+				type: "POST",
+				dataType: "json",
+				data: datos,
+				success: function(a) {
+					$("#close_delete").trigger('click');
+					$("#tr_"+a['data'].id).remove();
+				},
+				error: function(xhr,status,error) {
+					console.log(xhr.responseText);
+				}
+			})
 		}
 
 	});
@@ -91,7 +103,7 @@ function insert_event() {
 				type = 'Pay';
 			}
 			if (a.data[0].date >= a.data[0].creation_date) {
-				$("#content_table").append('<tr id="tr_'+a.data[0].id+'">'
+				$("#content_table").append('<tr id="tr_'+a.data[0].id+'" role="row" >'
 					+'<td>'+a.data[0].id+'</td>'
 					+'<td id="title_'+a.data[0].id+'">'+a.data[0].title+'</td>'
 					+'<td id="description_'+a.data[0].id+'"><a onclick="consultar_descripcion('+a.data[0].id+',0)">Description</a></td>'

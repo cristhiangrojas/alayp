@@ -55,5 +55,6 @@
 <script src="<?php echo base_url(); ?>external/js/app.min.js"></script>
 <script src="<?php echo base_url(); ?>external/js/pages/dashboard.js"></script>
 <script src="<?php echo base_url(); ?>external/js/demo.js"></script>
+<script src="<?php echo base_url(); ?>external/js/works.js"></script>
 </body>
 </html>
