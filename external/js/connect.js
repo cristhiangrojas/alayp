@@ -23,3 +23,21 @@ function activate_modal() {
 			remote: "connect/connect_modal"
 		});
 }
+$("#busqueda").on('submit',function(e){
+	datos = $("#busqueda").serialize();
+	if (datos != "") {
+		$.ajax({
+			url: base_url+"ajax/busqueda",
+			type: "POST",
+			dataType: "json",
+			data: datos,
+			success: function(a) {
+				console.log(a);
+			},
+			error: function(xhr,status,error) {
+				console.log(xhr.responseText);
+			}
+		});
+	}
+	e.preventDefault();
+});

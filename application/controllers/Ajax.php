@@ -325,6 +325,20 @@ class Ajax extends CI_Controller {
 		$this->response['data'] = $sql->result();
 		echo json_encode($this->response);
 	}
+	public function busqueda() {
+		$data = array_keys($_POST);
+		// print_r($data);
+		$interest = "";
+		$skills = "";
+		for ($i=0; $i < count($data) ; $i++) { 
+			if (strpos($data[$i],'s_') === false) {
+				$interest .= $data[$i].",";
+			}else {
+				$skills .= $data[$i].",";
+			}
+		}
+		echo $interest;
+	}
 	/* Comentario */
 }
 

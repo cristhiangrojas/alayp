@@ -12,6 +12,8 @@ class Connect extends CI_Controller
 		$data['content'] 	= 'connect';
 		$data['listado_panel_centro_sponsors'] = $this->newsfeed_ml->listado_panel_centro_sponsors();
 		$data['listado_panel_centro_connect'] = $this->newsfeed_ml->listado_panel_centro_connect();
+		$data['list_interest'] = $this->newsfeed_ml->listado_intereses();
+		$data['list_skills'] = $this->newsfeed_ml->listado_skills();
 		$this->load->view('template/index',$data);
 
 	}
