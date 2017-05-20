@@ -120,7 +120,9 @@
 										</center>
 									</div>
 								</form>
-								<div class="row persona">
+								<div id="resultado">
+								</div>
+ 								<!-- <div class="row persona">
 								<div class="col-xs-6 col-sm-9 contenido">
 									<div class="col-xs-6 col-sm-3 centrado">
 										<img src="external/img/avatar2.jpg" alt="foto de perfil" class="foto_perfilp">
@@ -139,8 +141,8 @@
 								<div class="col-xs-6 col-sm-3 centrado">
 									<button type="button" class="btn btn-default btn_connect" onclick="javascript:location.href='<?php echo base_url() ?>connect/user'"><i class="logo">Connect</i>&nbsp;<i class="fa fa-plug logos"></i></button>
 								</div>
-							</div>
-							<hr class="hr">
+							</div> -->
+							<!-- <hr class="hr">
 								<div class="row persona">
 								<div class="col-xs-6 col-sm-9 contenido">
 									<div class="col-xs-6 col-sm-3 centrado">
@@ -161,7 +163,7 @@
 									<button type="button" class="btn btn-default btn_connect" onclick="activate_modal()"><i class="logo">Connect</i>&nbsp;<i class="fa fa-plug logos"></i></button>
 								</div>
 							</div>
-							<hr class="hr">
+							<hr class="hr"> -->
 						</div>
 					</div>
 					<div class="col-md-4 col-lg-4 col-xl-4">

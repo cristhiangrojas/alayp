@@ -10,8 +10,22 @@
 								<img src="<?php echo base_url() ?>external/img/avatar2.jpg" alt="foto de perfil" class="foto_perfil">
 								<div class="background_perfil">
 										<i class="fa fa-comments icono2" aria-hidden="true"></i>
-									<?php if (is_logued()): ?>
-										<i class="fa fa-edit icono1 edit" title="Edit Profile" aria-hidden="true"></i>
+									<?php if (is_logued()): if ($this->uri->segment(3) != "") {
+										if ($_SESSION['id_usuario'] == $this->uri->segment(3)) {
+											?>
+											<i class="fa fa-edit icono1 edit" title="Edit Profile" aria-hidden="true"></i>
+											<?php
+										}else {
+											?>
+											<i class="fa fa-plug icono1" aria-hidden="true"></i>
+											<?php
+										}
+									}else {
+										?>
+											<i class="fa fa-edit icono1 edit" title="Edit Profile" aria-hidden="true"></i>
+										<?php
+										}?>
+										
 									<?php else: ?>
 										<i class="fa fa-plug icono1" aria-hidden="true"></i>
 									<?php endif ?>
@@ -29,7 +43,7 @@
 								<div class="col-md-3">
 									<h4 class="text-center">
 										<small>Country of Origin</small><br>
-										<? echo $user->country; ?>
+										<? echo $user->nombre_pais; ?>
 									</h4>
 								</div>
 								<div class="col-md-3">
@@ -62,25 +76,19 @@
 							</div>
 						</div>
 						<div class="col-md-4" id="skills">
+
 							<div class="grid_user">
 								<div class="title_grid">
 									Skills
 								</div>
 								<div class="content_grid list_skill_user">
-									<div class="skill sk3">Marketing</div>
-									<div class="skill sk3">Bookkeeping</div>
-									<div class="skill sk3">Marketing</div>
-									<div class="skill sk3">Spanish</div>
-									<div class="skill sk3">Systems</div>
-									<div class="skill sk3">Spanish</div>
-									<div class="skill sk3">Bookkeeping</div>
-									<div class="skill sk3">Mathematics</div>
-									<div class="skill sk3">Bookkeeping</div>
-									<div class="skill sk3">Systems</div>
-									<div class="skill sk3">Creativity</div>
-									<div class="skill sk3">Systems</div>
-									<div class="skill sk3">Mathematics</div>
-									<div class="skill sk3">Leadership</div>
+								<?php if($skills > 0) {
+										foreach ($skills as $row) {?>
+											<div class="skill sk3"><?php echo $row->title ?></div>
+										<?php }
+									}else {?>
+											<div class="skill sk3">No Skills found</div>
+										<?php } ?>
 								</div>
 							</div>
 						</div>
@@ -90,16 +98,15 @@
 									Interests
 								</div>
 								<div class="content_grid list_skill_user">
-									<div class="skill sk5 ">Ingeniering</div>
-									<div class="skill sk5 ">Ingeniering</div>
-									<div class="skill sk5 ">Arts</div>
-									<div class="skill sk5 ">Arts</div>
-									<div class="skill sk5 ">Culture</div>
-									<div class="skill sk5 ">Culture</div>
-									<div class="skill sk5 ">Social</div>
-									<div class="skill sk5 ">Social</div>
-									<div class="skill sk5 ">Law</div>
-									<div class="skill sk5 ">Law</div>
+									<?php 
+									if ($interests > 0) {
+									foreach ($interests as $key => $i): ?>
+										<div class="skill sk3"><? echo $i->title; ?></div>
+
+									<?php endforeach; }else {?>
+										<div class="skill sk3">No Interests found</div>
+									<?php
+										} ?>
 								</div>
 							</div>
 						</div>

@@ -45,15 +45,27 @@ class Main_model extends CI_Model {
 		return $sql;
 	}
 	function get_user($id){
+		$this->db->select('usuario.*,countries.country AS "nombre_pais"');
+		$this->db->join('countries', 'countries.id = usuario.country');
 		$this->db->where('id_usuario',$id);
 		$sql = $this->db->get('usuario');
 		return $sql;
 	}
 	function get_interests_user_profile($id){
 		$sql1 = json_decode($this->db->query('SELECT interests FROM usuario WHERE id_usuario="'.$id.'" LIMIT 1')->result()[0]->interests,true);
-		$this->db->where_in('id',$sql1);
-		$sql2 =  $this->db->get('interest')->result();
-		return $sql2;
+		if (count($sql1) > 0) {
+			$this->db->where_in('id',$sql1);
+			$sql2 =  $this->db->get('interest')->result();
+			return $sql2;
+		}
+	}
+	function get_skills_user_profile($id){
+		$sql1 = json_decode($this->db->query('SELECT skills FROM usuario WHERE id_usuario="'.$id.'" LIMIT 1')->result()[0]->skills,true);
+		if (count($sql1) > 0) {
+			$this->db->where_in('id',$sql1);
+			$sql2 =  $this->db->get('skills')->result();
+			return $sql2;
+		}
 	}
 	function get_countries(){
 		$this->db->where('accept',1);

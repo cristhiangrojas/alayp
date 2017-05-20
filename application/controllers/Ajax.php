@@ -331,13 +331,51 @@ class Ajax extends CI_Controller {
 		$interest = "";
 		$skills = "";
 		for ($i=0; $i < count($data) ; $i++) { 
-			if (strpos($data[$i],'s_') === false) {
-				$interest .= $data[$i].",";
+			$string = $data[$i];
+			$find = 's_';
+			$pos = strpos($string, $find);
+			if ($pos === false) {
+				$interest .= '"'.$data[$i].'"'."|";
 			}else {
-				$skills .= $data[$i].",";
+				$skills .= '"'.substr($data[$i], 2).'"'."|";
 			}
 		}
-		echo $interest;
+		$interest = substr($interest, 0, -1);
+		if ($interest == "") {
+			$interest = "'0'";
+		}
+		$skills = substr($skills, 0, -1);
+		if ($skills == "") {
+			$skills = "'0'";
+		}
+		$this->db->select('usuario.*,countries.country AS "nombre_pais"')
+				->join('countries', 'countries.id = usuario.country')
+				->where('id_rol != 1 AND (interests REGEXP '.$interest.' OR skills REGEXP '.$skills.')')
+				// ->or_where('interests REGEXP',$interest)
+				// ->or_where('skills REGEXP',$skills)
+				->order_by('id_usuario','ASC');
+		$consulta = $this->db->get('usuario');
+
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+				{
+					$datos[] = $fila;
+				}
+			echo json_encode($datos);
+		}else{
+			echo "0";
+		}
+
+		
+	}
+	public function nombre_pais(){
+		$id = $this->input->post('id');
+		$this->db->select('countries.*');
+		$this->db->where('id', $id);
+		$sql = $this->db->get('countries',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);
 	}
 	/* Comentario */
 }
