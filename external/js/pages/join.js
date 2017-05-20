@@ -1,7 +1,6 @@
 var modal = $('#myModal');
 var modal2 = $('#sign_in_ok');
 var level;
-var paises = ['Argentina','Bolivia','Brasil','Chile','Colombia','Costa Rica','Cuba','Ecuador','El Salvador','Guayana Francesa','Granada','Guatemala','Guayana','Haití','Honduras','Jamaica','México','Nicaragua','Paraguay','Panamá','Perú','Puerto Rico','República Dominicana','Surinam','Uruguay','Venezuela'];
 var aceptar = false;
 $(document).ready(function(){
 	console.log(666);
@@ -11,13 +10,22 @@ $(document).ready(function(){
 	send_form();
 	check_user();
 	change_level_user();
+	$("#s_country").select2({
+		placeholder: "Country"
+	})
+	$("#interests").select2({
+		placeholder: "Interests"
+	})
+	$("#languages").select2({
+		placeholder: "Languages"
+	})
+	$("#industry").select2({
+		placeholder: "Industry"
+	})
+	$("#educational").select2({
+		placeholder: 'Educational Background'
+	})
 });
-	function add_paises(){
-		var select;
-		$.each(paises,function(index,e){
-
-		});
-	}
 	function check_user(){
 		$('input#user').change(function(){
 			var group = $(this).closest('.form-group');

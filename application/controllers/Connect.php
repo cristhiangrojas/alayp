@@ -14,6 +14,10 @@ class Connect extends CI_Controller
 		$data['listado_panel_centro_connect'] = $this->newsfeed_ml->listado_panel_centro_connect();
 		$data['list_interest'] = $this->newsfeed_ml->listado_intereses();
 		$data['list_skills'] = $this->newsfeed_ml->listado_skills();
+		$data['countries'] = $this->work_employability_ml->paises_validos();
+		$data['industries'] = $this->newsfeed_ml->listado_industrias();
+		$data['languages'] = $this->newsfeed_ml->listado_lenguajes();
+		$data['education'] = $this->newsfeed_ml->listado_education();
 		$this->load->view('template/index',$data);
 
 	}

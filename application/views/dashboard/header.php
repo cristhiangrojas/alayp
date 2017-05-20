@@ -279,6 +279,9 @@
 						<li><a href="<?php echo base_url() ?>administrador/dashboard/skills"><i class="fa fa-circle-o"></i> Skills</a></li>
 						<li><a href="<?php echo base_url() ?>administrador/dashboard/interest"><i class="fa fa-circle-o"></i> Interest</a></li>
 						<li><a href="<?php echo base_url() ?>administrador/dashboard/countries"><i class="fa fa-circle-o"></i> Countries</a></li>
+						<li><a href="<?php echo base_url() ?>administrador/dashboard/industry"><i class="fa fa-circle-o"></i> Industry</a></li>
+						<li><a href="<?php echo base_url() ?>administrador/dashboard/languages"><i class="fa fa-circle-o"></i> Languages</a></li>
+						<li><a href="<?php echo base_url() ?>administrador/dashboard/educational_background"><i class="fa fa-circle-o"></i> Educational Background</a></li>
 					</ul>
 				</li>
 				<li><a href="<?php echo base_url() ?>administrador/dashboard"><i class="fa fa-tv"></i> <span>Sitio Web</span></a></li>

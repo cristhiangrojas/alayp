@@ -135,6 +135,96 @@ class Ajax extends CI_Controller {
 			echo json_encode($this->response);
 		}	
 	}
+	public function agregar_industria() {
+		$data['title'] = $this->input->post('title');
+		$this->db->insert('industries', $data);
+		$this->db->order_by('id','desc');
+		$sql = $this->db->get('industries',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);		
+	}
+	public function editar_industria() {
+		$data['title'] = $this->input->post('title');
+		$data['id'] = $this->input->post('id');
+		$this->db->select('industries.*', FALSE);
+		$this->db->where('industries.id', $data['id']);
+		$upd = $this->db->update('industries', $data);
+		if ($upd == true) {
+			$this->db->select('industries.*', FALSE)
+					->where('id',$data['id']);
+			$sql = $this->db->get('industries',1);
+			$this->response['data'] = $sql->result();
+			echo json_encode($this->response);
+		}	
+	}
+	public function eliminar_industria() {
+		$data['id'] = $this->input->post('id');
+		$delete = $this->db->delete('industries', $data);
+		if ($delete == true) {
+			$this->response['data'] = $data;
+			echo json_encode($this->response);
+		}	
+	}
+	public function agregar_lenguaje() {
+		$data['title'] = $this->input->post('title');
+		$this->db->insert('languages', $data);
+		$this->db->order_by('id','desc');
+		$sql = $this->db->get('languages',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);		
+	}
+	public function editar_lenguaje() {
+		$data['title'] = $this->input->post('title');
+		$data['id'] = $this->input->post('id');
+		$this->db->select('languages.*', FALSE);
+		$this->db->where('languages.id', $data['id']);
+		$upd = $this->db->update('languages', $data);
+		if ($upd == true) {
+			$this->db->select('languages.*', FALSE)
+					->where('id',$data['id']);
+			$sql = $this->db->get('languages',1);
+			$this->response['data'] = $sql->result();
+			echo json_encode($this->response);
+		}	
+	}
+	public function eliminar_lenguaje() {
+		$data['id'] = $this->input->post('id');
+		$delete = $this->db->delete('languages', $data);
+		if ($delete == true) {
+			$this->response['data'] = $data;
+			echo json_encode($this->response);
+		}	
+	}
+	public function agregar_education() {
+		$data['title'] = $this->input->post('title');
+		$this->db->insert('educational_background', $data);
+		$this->db->order_by('id','desc');
+		$sql = $this->db->get('educational_background',1);
+		$this->response['data'] = $sql->result();
+		echo json_encode($this->response);		
+	}
+	public function editar_education() {
+		$data['title'] = $this->input->post('title');
+		$data['id'] = $this->input->post('id');
+		$this->db->select('educational_background.*', FALSE);
+		$this->db->where('educational_background.id', $data['id']);
+		$upd = $this->db->update('educational_background', $data);
+		if ($upd == true) {
+			$this->db->select('educational_background.*', FALSE)
+					->where('id',$data['id']);
+			$sql = $this->db->get('educational_background',1);
+			$this->response['data'] = $sql->result();
+			echo json_encode($this->response);
+		}	
+	}
+	public function eliminar_education() {
+		$data['id'] = $this->input->post('id');
+		$delete = $this->db->delete('educational_background', $data);
+		if ($delete == true) {
+			$this->response['data'] = $data;
+			echo json_encode($this->response);
+		}	
+	}
 	public function editar_pais() {
 		$data['id'] = $this->input->post('id');
 		$data['accept'] = $this->input->post('accept');
@@ -327,9 +417,17 @@ class Ajax extends CI_Controller {
 	}
 	public function busqueda() {
 		$data = array_keys($_POST);
+		$location = $this->input->post('location');
+		$industry = $this->input->post('industry');
+		$languages = $this->input->post('languages');
+		$education = $this->input->post('education');
+		$professional = $this->input->post('professional');
+		$entrepreneur = $this->input->post('entrepreneur');
+		$company = $this->input->post('company');
 		// print_r($data);
 		$interest = "";
 		$skills = "";
+		$lang = "";
 		for ($i=0; $i < count($data) ; $i++) { 
 			$string = $data[$i];
 			$find = 's_';
@@ -348,19 +446,79 @@ class Ajax extends CI_Controller {
 		if ($skills == "") {
 			$skills = "'0'";
 		}
-		$this->db->select('usuario.*,countries.country AS "nombre_pais"')
+
+		if ($location != "" || $industry != "" || $languages != "" || $education != "") {
+			if ($interest == "'0'") {
+				$interest = "''";
+			}
+			if ($skills == "'0'") {
+				$skills = "''";
+			}
+			if ($lang == "'0'") {
+				$lang = "''";
+			}
+		}
+		for ($i=0; $i < count($languages) ; $i++) { 
+			$lang .= '"'.$languages[$i].'"'."|";
+		}
+		$lang = substr($lang, 0, -1);
+		if ($lang == "") {
+			$lang = "'0'";
+		}
+		$this->db->select('usuario.*,countries.country AS "nombre_pais",industries.title AS "nombre_industria", educational_background.title AS "nombre_educacion"')
 				->join('countries', 'countries.id = usuario.country')
-				->where('id_rol != 1 AND (interests REGEXP '.$interest.' OR skills REGEXP '.$skills.')')
+				->join('industries', 'industries.id = usuario.industry')
+				->join('educational_background', 'educational_background.id = usuario.educational')
+				->where('id_rol != 1 AND (interests REGEXP '.$interest.' OR skills REGEXP '.$skills.')');
 				// ->or_where('interests REGEXP',$interest)
 				// ->or_where('skills REGEXP',$skills)
-				->order_by('id_usuario','ASC');
+		if ($location) {
+			$this->db->where_in('usuario.country',$location);
+		}
+		if ($industry) {
+			$this->db->where_in('usuario.industry',$industry);
+		}
+		if ($languages) {
+			$this->db->where('languages REGEXP '.$lang.'');
+		}
+		if ($education) {
+			$this->db->where_in('usuario.educational',$education);
+		}
+		if ($professional == 1) {
+			$this->db->or_where('usuario.level like "single"');
+		}
+		if ($entrepreneur == 1) {
+			$this->db->or_where('usuario.level like "entrepreneur"');
+		}
+		if ($company == 1) {
+			$this->db->or_where('usuario.level like "company"');
+		}
+		$this->db->order_by('id_usuario','ASC');
 		$consulta = $this->db->get('usuario');
 
 		if($consulta->num_rows()>0)
 		{
+			$i = 0;
 			foreach($consulta->result() as $fila)
 				{
 					$datos[] = $fila;
+					$lenguajes = explode(",",substr($datos[$i]->languages , 1 ,-1));
+					$cont = count($lenguajes);
+					$leng_fin = "";
+					for ($a=0; $a < $cont ; $a++) { 
+						$valor = explode('"',$lenguajes[$a]);
+						$valor = $valor[1];
+						$this->db->select('languages.*')
+										->where('languages.id = '.$valor.'');
+						$sel =  $this->db->get('languages');
+						if ($sel->num_rows() > 0) {
+							foreach ($sel->result() as $lenguage) {
+								$leng_fin .= " ".$lenguage->title." /";
+							}
+						}
+						$datos[$i]->languages = substr($leng_fin,0,-1);
+					}					
+					$i ++;
 				}
 			echo json_encode($datos);
 		}else{

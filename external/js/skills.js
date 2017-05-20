@@ -181,3 +181,225 @@ function upload_country (id_country) {
 		}
 	})
 }
+function formIndustry() {
+	$("#formulario").submit(function(e) {
+		e.preventDefault();
+		var type = $("#type").val();
+		if (type == 1) {
+			insertar_industria()
+		}else if(type == 2) {
+			actualizar_industria();
+		}
+	})
+	$("#formularioEl").submit(function(e) {
+		e.preventDefault();
+		var datos = $( "#formularioEl" ).serialize();
+		$.ajax({
+			url: base_url+"ajax/eliminar_industria",
+			type: "POST",
+			dataType: "json",
+			data: datos,
+			success: function(a) {
+				// a['data'].id
+				$("#"+a['data'].id).remove();
+				$("#cerrar_modal").trigger('click');
+			},
+			error: function(xhr,status,error) {
+				console.log(xhr.responseText);
+			}
+		})
+		
+	})
+}
+function insertar_industria() {
+	var datos = $( "#formulario" ).serialize();
+	var skill = $("#titulo").val();
+	if (skill != "") {
+		$.ajax({
+			url: base_url+"ajax/agregar_industria",
+			type: "POST",
+			dataType: "json",
+			data: datos,
+			success: function (a) {
+				if ($("#zero")) {
+					$("#zero").remove();
+				}
+				// a.data[0].title
+				$("#titulo").val("");
+				$("#insercciones").append("&nbsp;<div class='btn-group' id='"+a.data[0].id+"'><button type='button' class='btn btn-primary' id='button_"+a.data[0].id+"'>"+a.data[0].title+"</button><button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><span class='caret'></span><span class='sr-only'>Toggle Dropdown</span></button><ul class='dropdown-menu'><li><a id='edit_"+a.data[0].id+"' onclick="+"editar_skill('"+a.data[0].id+"');"+">Edit</a></li><li><a href='#modal-delete' data-toggle='modal' onclick="+"elimiar_skill('"+a.data[0].id+"');"+">Delete</a></li></ul></div>");
+			},
+			error: function(xhr,status,error) {
+				console.log(xhr.responseText);
+			}
+		})
+	}
+}
+function actualizar_industria() {
+	var datos = $("#formulario").serialize();
+	var skill = $("#titulo").val();
+	if (skill != "") {
+		$.ajax({
+			url: base_url+"ajax/editar_industria",
+			type: "POST",
+			dataType: "json",
+			data: datos,
+			success: function(a) {
+				$("#button_"+a.data[0].id).html(a.data[0].title);
+				$("#titulo").val('');
+				$("#button").html('Add');
+				$("#type").val(1);
+			},
+			error: function(xhr,status,error) {
+				console.log(xhr.responseText);
+			}
+		})
+	}
+}
+function formLanguage() {
+	$("#formulario").submit(function(e) {
+		e.preventDefault();
+		var type = $("#type").val();
+		if (type == 1) {
+			insertar_lenguaje()
+		}else if(type == 2) {
+			actualizar_lenguaje();
+		}
+	})
+	$("#formularioEl").submit(function(e) {
+		e.preventDefault();
+		var datos = $( "#formularioEl" ).serialize();
+		$.ajax({
+			url: base_url+"ajax/eliminar_lenguaje",
+			type: "POST",
+			dataType: "json",
+			data: datos,
+			success: function(a) {
+				// a['data'].id
+				$("#"+a['data'].id).remove();
+				$("#cerrar_modal").trigger('click');
+			},
+			error: function(xhr,status,error) {
+				console.log(xhr.responseText);
+			}
+		})
+		
+	})
+}
+function insertar_lenguaje() {
+	var datos = $( "#formulario" ).serialize();
+	var skill = $("#titulo").val();
+	if (skill != "") {
+		$.ajax({
+			url: base_url+"ajax/agregar_lenguaje",
+			type: "POST",
+			dataType: "json",
+			data: datos,
+			success: function (a) {
+				if ($("#zero")) {
+					$("#zero").remove();
+				}
+				// a.data[0].title
+				$("#titulo").val("");
+				$("#insercciones").append("&nbsp;<div class='btn-group' id='"+a.data[0].id+"'><button type='button' class='btn btn-primary' id='button_"+a.data[0].id+"'>"+a.data[0].title+"</button><button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><span class='caret'></span><span class='sr-only'>Toggle Dropdown</span></button><ul class='dropdown-menu'><li><a id='edit_"+a.data[0].id+"' onclick="+"editar_skill('"+a.data[0].id+"');"+">Edit</a></li><li><a href='#modal-delete' data-toggle='modal' onclick="+"elimiar_skill('"+a.data[0].id+"');"+">Delete</a></li></ul></div>");
+			},
+			error: function(xhr,status,error) {
+				console.log(xhr.responseText);
+			}
+		})
+	}
+}
+function actualizar_lenguaje() {
+	var datos = $("#formulario").serialize();
+	var skill = $("#titulo").val();
+	if (skill != "") {
+		$.ajax({
+			url: base_url+"ajax/editar_lenguaje",
+			type: "POST",
+			dataType: "json",
+			data: datos,
+			success: function(a) {
+				$("#button_"+a.data[0].id).html(a.data[0].title);
+				$("#titulo").val('');
+				$("#button").html('Add');
+				$("#type").val(1);
+			},
+			error: function(xhr,status,error) {
+				console.log(xhr.responseText);
+			}
+		})
+	}
+}
+function formEducation() {
+	$("#formulario").submit(function(e) {
+		e.preventDefault();
+		var type = $("#type").val();
+		if (type == 1) {
+			insertar_education()
+		}else if(type == 2) {
+			actualizar_education();
+		}
+	})
+	$("#formularioEl").submit(function(e) {
+		e.preventDefault();
+		var datos = $( "#formularioEl" ).serialize();
+		$.ajax({
+			url: base_url+"ajax/eliminar_education",
+			type: "POST",
+			dataType: "json",
+			data: datos,
+			success: function(a) {
+				// a['data'].id
+				$("#"+a['data'].id).remove();
+				$("#cerrar_modal").trigger('click');
+			},
+			error: function(xhr,status,error) {
+				console.log(xhr.responseText);
+			}
+		})
+		
+	})
+}
+function insertar_education() {
+	var datos = $( "#formulario" ).serialize();
+	var skill = $("#titulo").val();
+	if (skill != "") {
+		$.ajax({
+			url: base_url+"ajax/agregar_education",
+			type: "POST",
+			dataType: "json",
+			data: datos,
+			success: function (a) {
+				if ($("#zero")) {
+					$("#zero").remove();
+				}
+				// a.data[0].title
+				$("#titulo").val("");
+				$("#insercciones").append("&nbsp;<div class='btn-group' id='"+a.data[0].id+"'><button type='button' class='btn btn-primary' id='button_"+a.data[0].id+"'>"+a.data[0].title+"</button><button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><span class='caret'></span><span class='sr-only'>Toggle Dropdown</span></button><ul class='dropdown-menu'><li><a id='edit_"+a.data[0].id+"' onclick="+"editar_skill('"+a.data[0].id+"');"+">Edit</a></li><li><a href='#modal-delete' data-toggle='modal' onclick="+"elimiar_skill('"+a.data[0].id+"');"+">Delete</a></li></ul></div>");
+			},
+			error: function(xhr,status,error) {
+				console.log(xhr.responseText);
+			}
+		})
+	}
+}
+function actualizar_education() {
+	var datos = $("#formulario").serialize();
+	var skill = $("#titulo").val();
+	if (skill != "") {
+		$.ajax({
+			url: base_url+"ajax/editar_education",
+			type: "POST",
+			dataType: "json",
+			data: datos,
+			success: function(a) {
+				$("#button_"+a.data[0].id).html(a.data[0].title);
+				$("#titulo").val('');
+				$("#button").html('Add');
+				$("#type").val(1);
+			},
+			error: function(xhr,status,error) {
+				console.log(xhr.responseText);
+			}
+		})
+	}
+}

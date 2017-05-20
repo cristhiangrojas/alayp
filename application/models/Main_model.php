@@ -20,7 +20,7 @@ class Main_model extends CI_Model {
 			'industry'=>$a['industry'],
 			'interests'=>json_encode($a['interests']),
 			'skills'=>json_encode(array()),
-			'languages'=>$a['languages'],
+			'languages'=>json_encode($a['languages']),
 			'level'=>$a['level_user'],
 			'plan'=>$a['level_single'],
 			'occupation'=>$a['occupation'],

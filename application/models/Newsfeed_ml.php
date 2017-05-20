@@ -341,5 +341,47 @@ class Newsfeed_ml extends CI_Model {
 				return $data;
 		}
 	}
+	public function listado_industrias() {
+		$this->db->select('industries.*', FALSE)
+				->order_by('industries.id', 'ASC');
+		$consulta = $this->db->get('industries');
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+			{
+
+					$data[] = $fila;
+			}
+				return $data;
+		}
+	}
+	public function listado_lenguajes() {
+		$this->db->select('languages.*', FALSE)
+				->order_by('languages.id', 'ASC');
+		$consulta = $this->db->get('languages');
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+			{
+
+					$data[] = $fila;
+			}
+				return $data;
+		}
+	}
+	public function listado_education() {
+		$this->db->select('educational_background.*', FALSE)
+				->order_by('educational_background.id', 'ASC');
+		$consulta = $this->db->get('educational_background');
+		if($consulta->num_rows()>0)
+		{
+			foreach($consulta->result() as $fila)
+			{
+
+					$data[] = $fila;
+			}
+				return $data;
+		}
+	}
 }
 ?>

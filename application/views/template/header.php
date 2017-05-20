@@ -11,6 +11,8 @@
 	<link href="<?php echo base_url() ?>external/css/connect.css?<? echo strtotime(date('Y-m-d H:i:s')); ?>" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="<?php echo base_url() ?>external/js/events.js"></script>
+<link rel="stylesheet" href="<? echo base_url() ?>external/plugins/select2/select2.min.css">
+<script type="text/javascript" src="<? echo base_url() ?>external/plugins/select2/select2.min.js"></script>
 </head>
 <body>
 	<script type="text/javascript">var base_url = '<? echo base_url(); ?>';</script>

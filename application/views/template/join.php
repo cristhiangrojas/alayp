@@ -120,22 +120,42 @@
 								<div class="form-group">
 									<select name="industry" id="industry" class="form-control">
 										<option value="">Industry</option>
-									</select>
+									<?php if ($industries > 0) {
+										foreach ($industries as $key) { ?>
+											<option value="<?php echo $key->id; ?>"><?php echo $key->title; ?></option>
+										<?php }
+									} ?>
+										<!-- <option value="">Industry</option>
+										<option value="1">Industry1</option>
+										<option value="2">Industry2</option>
+ -->								</select>
 								</div>
 								<div class="form-group">
 									<select name="educational" id="educational" class="form-control">
 										<option value="">Educational background</option>
+									<?php if ($education > 0) {
+										foreach ($education as $key) { ?>
+											<option value="<?php echo $key->id; ?>"><?php echo $key->title; ?></option>
+										<?php }
+									} ?>
 									</select>
 								</div>
 								<div class="form-group">
-									<select name="languages" id="languages" class="form-control">
-										<option value="">Languages</option>
+									<select name="languages[]" id="languages" class="form-control" multiple>
+										<!-- <option value="1">Language1</option>
+										<option value="2">Language2</option>
+										<option value="3">Language3</option> -->
+									<?php if ($languages > 0) {
+										foreach ($languages as $key) { ?>
+											<option value="<?php echo $key->id; ?>"><?php echo $key->title; ?></option>
+										<?php }
+									} ?>
 									</select>
 								</div>
 
 								<div class="form-group">
 									<select id="interests" name="interests[]" class="form-control" required="required" multiple="multiple">
-										<option value="">-- INTERESTS --</option>
+										<!-- <option value="">-- INTERESTS --</option> -->
 										<?php foreach ($interests->result() as $key => $i): ?>
 											<option value="<? echo $i->id; ?>"><? echo $i->title ?></option>
 										<?php endforeach ?>

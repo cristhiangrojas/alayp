@@ -87,6 +87,60 @@ class Dashboard extends CI_Controller
 			redirect('login', 'refresh');
 		}
 	}
+	function industry() {
+		if($this->session->userdata('is_logued_in') == true)
+		{
+			$datos['industries'] = $this->newsfeed_ml->listado_industrias();
+			$header 	= $this->header;
+			$content 	= "dashboard/modulos/menu/industry";
+			$footer 	= $this->footer;
+
+			$this->load->view($header);
+			$this->load->view($content, $datos);
+			$this->load->view($footer);
+
+		}else{
+
+			$this->session->set_flashdata('login_usuario','Usted no se encuentra logeado');
+			redirect('login', 'refresh');
+		}
+	}
+	function languages() {
+		if($this->session->userdata('is_logued_in') == true)
+		{
+			$datos['languages'] = $this->newsfeed_ml->listado_lenguajes();
+			$header 	= $this->header;
+			$content 	= "dashboard/modulos/menu/languages";
+			$footer 	= $this->footer;
+
+			$this->load->view($header);
+			$this->load->view($content, $datos);
+			$this->load->view($footer);
+
+		}else{
+
+			$this->session->set_flashdata('login_usuario','Usted no se encuentra logeado');
+			redirect('login', 'refresh');
+		}
+	}
+	function educational_background() {
+		if($this->session->userdata('is_logued_in') == true)
+		{
+			$datos['educational_background'] = $this->newsfeed_ml->listado_education();
+			$header 	= $this->header;
+			$content 	= "dashboard/modulos/menu/educational_background";
+			$footer 	= $this->footer;
+
+			$this->load->view($header);
+			$this->load->view($content, $datos);
+			$this->load->view($footer);
+
+		}else{
+
+			$this->session->set_flashdata('login_usuario','Usted no se encuentra logeado');
+			redirect('login', 'refresh');
+		}
+	}	
 	function events_upcoming() {
 		if($this->session->userdata('is_logued_in') == true)
 		{

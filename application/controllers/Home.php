@@ -72,6 +72,9 @@ class Home extends CI_Controller
 		$data['content'] 	= 'join';
 		$data['country'] = $this->main_model->get_countries();
 		$data['interests'] = $this->main_model->get_interests();
+		$data['industries'] = $this->newsfeed_ml->listado_industrias();
+		$data['languages'] = $this->newsfeed_ml->listado_lenguajes();
+		$data['education'] = $this->newsfeed_ml->listado_education();
 		$this->load->view('template/index',$data);
 	}
 	public function user(){

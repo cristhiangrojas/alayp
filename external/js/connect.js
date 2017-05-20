@@ -66,9 +66,9 @@ $("#busqueda").on('submit',function(e){
 							+'</div>'
 							+'<div class="col-xs-6 col-sm-5">'
 							+'<div class="floating-box2"><span class="tdtitle bold">Located In -</span> <span class="tdtitle"> '+data[i].nombre_pais+'</span></div>'
-							+'<div class="floating-box2"><span class="tdtitle bold">Industry -</span><span class="tdtitle"> '+data[i].industry+'</span></div>'
-							+'<div class="floating-box2"><span class="tdtitle bold">Languages -</span><span class="tdtitle"> '+data[i].languages+'</span></div>'
-							+'<div class="floating-box2"><span class="tdtitle bold">Education background -</span><span class="tdtitle"> '+data[i].educational+'</span></div>'
+							+'<div class="floating-box2"><span class="tdtitle bold">Industry -</span><span class="tdtitle"> '+data[i].nombre_industria+'</span></div>'
+							+'<div class="floating-box2"><span class="tdtitle bold">Languages -</span><span class="tdtitle"> '+data[i].languages +'</span></div>'
+							+'<div class="floating-box2"><span class="tdtitle bold">Education background -</span><span class="tdtitle"> '+data[i].nombre_educacion+'</span></div>'
 							+'</div>'
 							+'</div>'
 							+'<div class="col-xs-6 col-sm-3 centrado">'
@@ -108,4 +108,26 @@ function nombre_pais(id_pais) {
 }
 function redireccionar(id){
 	location.href = base_url+"connect/user/"+id;
+}
+function tipo_consulta(id) {
+	if ($("#button_"+id).data('active')) {
+		$("#"+id).val("1");
+		$("#button_"+id).data('active',false);
+		$("#button_"+id).addClass("active");
+	}else {
+		$("#"+id).val("");
+		$("#button_"+id).data('active',true);
+		$("#button_"+id).removeClass("active");
+	}
+}
+function enlaces(id,numero) {
+	if ($("#button_"+id).data('active')) {
+		$("#"+id).val(numero);
+		$("#button_"+id).data('active',false);
+		$("#button_"+id).addClass("active");		
+	}else {
+		$("#"+id).val(numero);
+		$("#button_"+id).data('active',true);
+		$("#button_"+id).removeClass("active");
+	}
 }

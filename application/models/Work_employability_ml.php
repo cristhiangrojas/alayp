@@ -52,5 +52,17 @@ class Work_employability_ml extends CI_Model {
 			return $data;
 		}
 	}
+	function paises_validos() {
+		$this->db->select('countries.*')
+				->where('accept',1)
+				->order_by('countries.id','ASC');
+		$consulta = $this->db->get('countries');
+		if ($consulta->num_rows() > 0) {
+			foreach ($consulta->result() as $row) {
+				$data[] = $row;
+			}
+			return $data;
+		}
+	}
 }
 ?>
