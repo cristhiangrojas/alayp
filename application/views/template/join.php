@@ -85,6 +85,12 @@
 							<button type="button" id="btn_level" class="btn btn-primary" data-level="entrepreneur">Entrepreneur</button><br /><br />
 						</div>
 						<div class="contenido">
+								<div class="form-group">
+									<input type="file" class="form-control" id="profile_photo" name="profile_photo" required>
+								</div>
+								<div class="form-group">
+									<input type="file" class="form-control" id="cover_photo" name="cover_photo" required>
+								</div>
 								<div class="form-group relative">
 									<label class="control-label" id="status_user" style="display: none">Input with success</label>
 									<input type="text" name="user" class="form-control" id="user" placeholder="User" required>
@@ -112,7 +118,8 @@
 									</select>
 								</div>
 								<div class="form-group">
-									<input type="text" name="date_born" class="form-control" id="date_born" placeholder="Date of birth Day / Month / Year">
+									<!-- <input type="text" name="date_born" class="form-control" id="date_born" placeholder="Date of birth Day / Month / Year"> -->
+									<input type="text" class="form-control" id="date" placeholder="Date Born" name="date_born" required readonly>
 								</div>
 								<div class="form-group">
 									<input type="text" name="occupation" class="form-control" id="occupation" placeholder="Occupation">

@@ -25,6 +25,20 @@ $(document).ready(function(){
 	$("#educational").select2({
 		placeholder: 'Educational Background'
 	})
+	$("#profile_photo").fileinput({
+		showUpload: false,
+		allowedFileExtensions: ['jpg', 'png', 'gif', 'JPG', 'JPEG', 'PNG'],
+		initialCaption: "Profile Photo"
+	});
+	$("#cover_photo").fileinput({
+		showUpload: false,
+		allowedFileExtensions: ['jpg', 'png', 'gif', 'JPG', 'JPEG', 'PNG'],
+		initialCaption: "Cover Photo"
+	});
+	$( "#date" ).datepicker({
+		format: 'yyyy-mm-dd',
+		autoclose: true,
+	});
 });
 	function check_user(){
 		$('input#user').change(function(){
@@ -100,14 +114,18 @@ $(document).ready(function(){
 	function send_form(){
 		$('#form_signup').submit(function(e){
 			e.preventDefault();
+			var formData = new FormData($("#form_signup")[0]);
 			var modal2 = $('#sign_in_ok');
 			var form = $(this);
 			var datos = $(form).serialize();
 			$.ajax({
 				url: base_url+'ajax/register_user',
-				type: 'POST',
-				dataType: 'json',
-				data: datos,
+				type: "POST",
+				dataType: "json",
+				data: formData,
+				cache: false,
+				contentType: false,
+				processData: false,
 				beforeSend: function(){
 			
 				},

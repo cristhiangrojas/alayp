@@ -1,3 +1,4 @@
+<?php foreach ($usuario as $user) {?>
 <section id="newsfeed">
 	<div class="section_1">
 		<div class="container-fluid">
@@ -6,8 +7,8 @@
 					<div class="row">	
 						<div class="col-md-12">
 							<div class="grid_user">
-								<img src="<?php echo base_url() ?>external/img/fondo.jpg" alt="foto de portada" class="foto_portada">
-								<img src="<?php echo base_url() ?>external/img/avatar2.jpg" alt="foto de perfil" class="foto_perfil">
+								<img src="<?php echo base_url() ?>uploads/fotos_perfil/<?php echo $user->foto_portada; ?>" alt="foto de portada" class="foto_portada">
+								<img src="<?php echo base_url() ?>uploads/fotos_perfil/<?php echo $user->foto_perfil; ?>" alt="foto de perfil" class="foto_perfil">
 								<div class="background_perfil">
 										<i class="fa fa-comments icono2" aria-hidden="true"></i>
 									<?php if (is_logued()): if ($this->uri->segment(3) != "") {
@@ -69,8 +70,8 @@
 								<div class="title_grid">Proffesional Information</div>
 								<div class="content_grid list_information">
 									<div class="list"><span class="tdtitle">Occupation:</span><? echo $user->occupation ?></div>
-									<div class="list"><span class="tdtitle">Industry:</span> <? echo $user->industry; ?></div>
-									<div class="list"><span class="tdtitle">Education Background:</span> <? echo $user->educational; ?></div>
+									<div class="list"><span class="tdtitle">Industry:</span> <? echo $user->nombre_industria; ?></div>
+									<div class="list"><span class="tdtitle">Education Background:</span> <? echo $user->nombre_educacion; ?></div>
 									<div class="list"><span class="tdtitle">Languages:</span> <? echo $user->languages; ?></div>
 								</div>
 							</div>
@@ -194,3 +195,4 @@
 	</div>
 </div>
 <script type="text/javascript" src="<? echo base_url() ?>external/js/pages/connect_user.js?<? echo time_unix(); ?>"></script>
+<?php } ?>

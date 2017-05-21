@@ -1,9 +1,10 @@
 	<section id="newsfeed">
-
 		<div class="section_1">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-8 col-lg-8 col-xl-8">
+
+
 						<div class="fondo_noticias">
 								<div class="search">
 									<h2>CONNECT WITH OTHERS</h2>
@@ -14,17 +15,75 @@
 											<input type="text" class="inputkey">
 										</div>
 										<div class="col-xs-6 col-sm-3 padding">
-											<button type="button" class="btn btn-default margin">Professional</button>
+											<button type="button" class="btn btn-default margin" onclick="tipo_consulta('professional');" data-active="true" id="button_professional">Professional</button>
+											
 										</div>
 										<div class="col-xs-6 col-sm-3 padding">
-											<button type="button" class="btn btn-default margin">Entrepreneur</button>
+											<button type="button" class="btn btn-default margin" onclick="tipo_consulta('entrepreneur');" data-active="true" id="button_entrepreneur">Entrepreneur</button>
+											
 										</div>
 										<div class="col-xs-6 col-sm-3 padding">
-											<button type="button" class="btn btn-default margin">Company / Organisation</button>
+											<button type="button" class="btn btn-default margin" onclick="tipo_consulta('company');" data-active="true" id="button_company">Company / Organisation</button>
+											
 										</div>
 									</div>
+
+	<form class="form-horizontal" method="POST" id="busqueda" name="busqueda">
+<input type="hidden" id="professional" name="professional">
+<input type="hidden" id="entrepreneur" name="entrepreneur">
+<input type="hidden" id="company" name="company">
+		<div class="col-sm-3">
+			<select id="location" name="location[]" class="form-control" multiple="multiple">
+				<?php if ($countries > 0) {
+					foreach ($countries as $key) {?>
+						<option value="<?php echo $key->id; ?>"><?php echo $key->country; ?></option>
+					<?php } }?>
+			</select>
+		</div>
+		<div class="col-sm-3">
+			<select id="industry" name="industry[]" class="form-control" multiple="multiple">
+				<?php if ($industries > 0) {
+					foreach ($industries as $key) {?>
+						<option value="<?php echo $key->id; ?>"><?php echo $key->title; ?></option>
+					<?php } }?>
+				</select>
+		</div>
+		<div class="col-sm-3">
+			<select id="languages" name="languages[]" class="form-control" multiple="multiple">
+				<?php if ($languages > 0) {
+					foreach ($languages as $key) {?>
+						<option value="<?php echo $key->id; ?>"><?php echo $key->title; ?></option>
+					<?php } }?>
+				</select>
+		</div>
+		<div class="col-sm-3">
+			<select id="education" name="education[]" class="form-control" multiple="multiple">
+				<?php if ($education > 0) {
+					foreach ($education as $key) {?>
+						<option value="<?php echo $key->id; ?>"><?php echo $key->title; ?></option>
+					<?php } }?>
+				</select>
+		</div>
+<script>
+$("#location").select2({
+  placeholder: "Location"
+});
+$("#industry").select2({
+  placeholder: "Industry"
+});
+$("#languages").select2({
+  placeholder: "Languages"
+});
+$("#education").select2({
+  placeholder: "Educational background"
+});
+</script>
+
 									<div>
-										<div class="col-xs-6 col-sm-3 padding">
+
+
+
+										<!-- <div class="col-xs-6 col-sm-3 padding">
 										  <div class="btn-group btn-default">
 										    <button type="button" class="btn btn-default dropdown-toggle"
 										            data-toggle="dropdown">
@@ -36,8 +95,12 @@
 										      <li><a href="#">Enlace #2</a></li>
 										    </ul>
 										  </div>
-										</div>
-										<div class="col-xs-6 col-sm-3 padding">
+										</div> -->
+
+									
+
+
+									<!-- 	<div class="col-xs-6 col-sm-3 padding">
 										  <div class="btn-group btn-default">
 										    <button type="button" class="btn btn-default dropdown-toggle"
 										            data-toggle="dropdown">
@@ -75,10 +138,9 @@
 										      <li><a href="#">Enlace #2</a></li>
 										    </ul>
 										  </div>
-										</div>
+										</div> -->
 									</div>
 								</div>
-								<form action="" method="POST" id="busqueda" name="busqueda">
 									<div class="interest">
 										<div class="row">
 											<h3>Interest</h3>

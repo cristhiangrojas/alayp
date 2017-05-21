@@ -11,6 +11,12 @@
 	<link href="<?php echo base_url() ?>external/css/connect.css?<? echo strtotime(date('Y-m-d H:i:s')); ?>" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="<?php echo base_url() ?>external/js/events.js"></script>
+	<script src="<?php echo base_url(); ?>external/plugins/fileinput/fileinput.js" type="text/javascript"></script>
+	<script src="<?php echo base_url(); ?>external/plugins/fileinput/themes/explorer/theme.js" type="text/javascript"></script>
+	<link href="<?php echo base_url(); ?>external/plugins/fileinput/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
+	<link href="<?php echo base_url(); ?>external/plugins/fileinput/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>external/plugins/datepicker/datepicker3.css">
+
 <link rel="stylesheet" href="<? echo base_url() ?>external/plugins/select2/select2.min.css">
 <script type="text/javascript" src="<? echo base_url() ?>external/plugins/select2/select2.min.js"></script>
 </head>

@@ -56,7 +56,7 @@ $("#busqueda").on('submit',function(e){
 						$("#resultado").append('<div class="row persona">'
 							+'<div class="col-xs-6 col-sm-9 contenido">'
 							+'<div class="col-xs-6 col-sm-3 centrado">'
-							+'<img src="external/img/avatar2.jpg" alt="foto de perfil" class="foto_perfilp">'
+							+'<img src="uploads/fotos_perfil/'+data[i].foto_perfil+'" alt="foto de perfil" class="foto_perfilp">'
 							+'</div>'
 							+'<div class="col-xs-6 col-sm-4 centrado">'
 							+'<div class="floating-box2"><span class="nombre">'

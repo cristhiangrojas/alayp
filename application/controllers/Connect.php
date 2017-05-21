@@ -31,7 +31,7 @@ class Connect extends CI_Controller
 		}else {
 			$id_user = $_SESSION['id_usuario'];
 		}
-		$data['user'] = $this->main_model->get_user($id_user)->result()[0];
+		$data['usuario'] = $this->main_model->get_user($id_user);
 		$data['info'] = $this->main_model->get_user_info($id_user);
 		$data['interests'] = $this->main_model->get_interests_user_profile($id_user);
 		$data['skills'] = $this->main_model->get_skills_user_profile($id_user);
